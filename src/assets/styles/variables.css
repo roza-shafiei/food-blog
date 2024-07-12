@@ -17,12 +17,13 @@
     --color-light-black-500: #444444;
     --color-light-black-600: #333333;
     --color-light-black-700: #222222;
+    --color-light-black-750: #262522;
     --color-light-black-800: #111111;
     --color-light-black-900: #000000;
 
     --color-light-bg: #F0EBE1;
     --default-font: "Roboto";
-    --max-width: 1920px;
+    --max-width: 1440px;
     --default-border-radius: 8px;
     --default-spacing: 3rem;
 }

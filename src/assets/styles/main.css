@@ -10,8 +10,8 @@ html {
 body {
     line-height: 1.6;
     font-family: var(--default-font);
-    direction: rtl;
     max-width: var(--max-width);
+    padding: 16px 32px;
     margin: 0 auto;
     background: var(--color-light-bg);
     min-height: 100vh;
@@ -29,4 +29,103 @@ a {
 
 i {
     user-select: none;
+}
+
+.primary-btn {
+    border-radius: 24px;
+    padding: 12px 24px;
+    background: var(--color-light-black-750);
+    color: var(--color-light-bg);
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all ease 400ms;
+}
+
+.primary-btn:hover {
+    opacity: 80%;
+}
+
+/*start navbar style*/
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #26252224;
+    padding: 12px 24px;
+    border-radius: 32px;
+
+
+    .navbar__list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+
+        .navbar__list__item {
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .navbar__list--link {
+            font-family: Roboto;
+            font-weight: 500;
+            font-size: 14px;
+            color: #26252260;
+        }
+    }
+
+    .navbar__actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .navbar__actions__icon {
+            font-size: 22px;
+            padding: 12px;
+            background: #26252210;
+            border-radius: 1rem;
+        }
+    }
+}
+
+.navbar__logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    .navbar__logo--text {
+        font-family: Roboto;
+        font-weight: 700;
+        font-size: 15px;
+        max-width: 50px;
+    }
+}
+
+#navbar-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #26252224;
+    padding: 12px 24px;
+    border-radius: 32px;
+}
+
+.active-link {
+    color: var(--color-light-black-750) !important
+}
+
+.active-link::before {
+    position: absolute;
+    bottom: 0;
+    height: 4px;
+    width: 100%;
+    content: '';
+    background: var(--color-light-danger);
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+
 }

@@ -2,18 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>The Best Cooking Recipes</title>
-    <meta name="keywords" content="HTML, CSS, JavaScript, Recipe website, cooking template">
-    <meta name="description" content="HTML, CSS and Vanilla JS Cooking Blog">
-    <meta name="author" content="Roza Shafiei">
-<!--    reset default browsers styles-->
+    <meta content="HTML, CSS, JavaScript, Recipe website, cooking template" name="keywords">
+    <meta content="HTML, CSS and Vanilla JS Cooking Blog" name="description">
+    <meta content="Roza Shafiei" name="author">
+    <link href="/public/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/src/dependencies/fontawsome.min.css">
+    <!--    reset default browsers styles-->
     <link href="assets/styles/reset.css" rel="stylesheet" type="text/css">
     <link href="assets/styles/main.css" rel="stylesheet">
 </head>
 <body>
-<p>Hi roza</p>
+<nav id="navbar">
+    <a class="navbar__logo">
+        <img alt="logo" class="navbar__logo--img" src="/public/images/Logo.png"/>
+        <span class="navbar__logo--text">Cooks Delight</span>
+    </a>
+    <ul class="navbar__list">
+        <li class="navbar__list__item"><a class="navbar__list--link active-link" href="#">Home</a></li>
+        <li class="navbar__list__item"><a class="navbar__list--link" href="#">Recipes</a></li>
+        <li class="navbar__list__item"><a class="navbar__list--link" href="#">Cooking Tips</a></li>
+        <li class="navbar__list__item"><a class="navbar__list--link" href="#">About us</a></li>
+    </ul>
+    <div class="navbar__actions">
+        <i class="fas fa-search navbar__actions__icon"></i>
+        <a class="navbar__actions__subscribe primary-btn">Subscribe</a>
+    </div>
+</nav>
+
+<script src="/src/dependencies/fontawsome.min.js"></script>
 </body>
 </html>
