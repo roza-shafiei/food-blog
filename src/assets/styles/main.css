@@ -45,6 +45,8 @@ i {
     text-transform: uppercase;
     cursor: pointer;
     transition: all ease 400ms;
+    border: none;
+    outline: none;
 }
 
 .primary-btn {
@@ -58,12 +60,14 @@ i {
 
 /*start navbar style*/
 #navbar {
+    max-width: calc(var(--max-width) - 64px);
+    margin: 0 auto;
     display: none;
     align-items: center;
     justify-content: space-between;
     border: 1px solid #26252224;
     padding: 12px 24px;
-    border-radius: 32px;
+    border-radius: var(--default-border-radius);
     -webkit-backdrop-filter: blur(35px);
     backdrop-filter: blur(35px);
     background: rgba(var(--color-light-bg) 0.1);
@@ -125,7 +129,7 @@ i {
     justify-content: space-between;
     border: 1px solid #26252224;
     padding: 12px 24px;
-    border-radius: 32px;
+    border-radius: var(--default-border-radius);
     -webkit-backdrop-filter: blur(35px);
     backdrop-filter: blur(35px);
     background: rgba(var(--color-light-bg) 0.1);
@@ -216,7 +220,7 @@ i {
         background: var(--color-light-black-300);
         color: var(--color-light-bg);
         padding: 12px;
-        border-radius: 16px;
+        border-radius: 1rem;
     }
 }
 

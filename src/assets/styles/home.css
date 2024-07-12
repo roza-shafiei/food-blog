@@ -1,0 +1,47 @@
+.main-content {
+    margin-top: 90px;
+}
+
+/* start hero section*/
+.hero-section {
+    width: 100%;
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%), url("/public/images/home/cooking2.jpg");
+    height: 557px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+
+    .hero-section__content {
+        max-width: 860px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        color: var(--color-light-bg);
+
+
+        .hero-section__content__title {
+            font-family: Montserrat;
+            font-weight: 900;
+            line-height: 1.1;
+        }
+
+        .hero-section__content__desc {
+            font-family: Roboto;
+            font-weight: 400;
+            word-spacing: 4px;
+        }
+
+        .hero-section__content__button {
+            background: var(--color-light-secondary);
+        }
+    }
+}
+
+/* finish hero section*/

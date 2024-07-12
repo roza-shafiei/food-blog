@@ -3,10 +3,32 @@
         padding: 16px;
 
     }
+
+    .hero-section__content__title {
+        font-size: 38px;
+    }
+
+    .hero-section__content__desc {
+        font-size: 16px;
+    }
+
+    .hero-section__content__button {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 600px) {
+    .hero-section__content__title {
+        font-size: 56px;
+    }
 
+    .hero-section__content__desc {
+        font-size: 18px;
+    }
+
+    .hero-section__content__button {
+        width: fit-content;
+    }
 }
 
 @media screen and (min-width: 800px) {
@@ -20,6 +42,14 @@
 
     .container {
         padding: 16px 32px;
+    }
+
+    .hero-section__content__title {
+        font-size: 80px;
+    }
+
+    .hero-section__content__desc {
+        font-size: 22px;
     }
 }
 
