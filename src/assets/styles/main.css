@@ -1,0 +1,31 @@
+@import "../fonts/Roboto/index.css";
+@import "../fonts/Montserrat/index.css";
+
+/*default style*/
+html {
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.6;
+    font-family: var(--default-font);
+    direction: rtl;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    background: var(--color-light-bg);
+    min-height: 100vh;
+}
+
+*, *::before, *::after {
+    outline: none;
+    box-sizing: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+i {
+    user-select: none;
+}
