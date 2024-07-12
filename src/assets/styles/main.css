@@ -10,6 +10,7 @@ html {
 body {
     line-height: 1.6;
     font-family: var(--default-font);
+    font-weight: 400;
     max-width: var(--max-width);
     margin: 0 auto;
     background: var(--color-light-bg);
@@ -55,7 +56,17 @@ i {
 }
 
 .primary-btn:hover {
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 1px solid var(--color-light-black-750);
+    color: var(--color-light-black-750);
+}
+
+.secondary-btn:hover {
     opacity: 80%;
+
 }
 
 /*start navbar style*/

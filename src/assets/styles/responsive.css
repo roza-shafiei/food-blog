@@ -15,6 +15,17 @@
     .hero-section__content__button {
         width: 100%;
     }
+
+    .palette {
+        flex-direction: column;
+        padding: 24px;
+
+    }
+
+    .palette__list, .palette__content {
+        width: 100%;
+        max-width: 100%;
+    }
 }
 
 @media screen and (min-width: 600px) {
@@ -50,6 +61,16 @@
 
     .hero-section__content__desc {
         font-size: 22px;
+    }
+
+    .palette {
+        padding: 40px;
+        flex-direction: row;
+    }
+
+    .palette__list, .palette__content {
+        width: 40%;
+        max-width: 40%;
     }
 }
 
