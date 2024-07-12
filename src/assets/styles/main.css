@@ -1,5 +1,6 @@
 @import "../fonts/Roboto/index.css";
 @import "../fonts/Montserrat/index.css";
+@import "../styles/variables.css";
 
 /*default style*/
 html {
