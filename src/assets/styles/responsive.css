@@ -1,0 +1,36 @@
+@media screen and (min-width: 0px) {
+    .container {
+        padding: 16px;
+
+    }
+}
+
+@media screen and (min-width: 600px) {
+
+}
+
+@media screen and (min-width: 800px) {
+    #navbar {
+        display: flex;
+    }
+
+    #navbar-mobile {
+        display: none;
+    }
+
+    .container {
+        padding: 16px 32px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+}
+
+@media screen and (min-width: 1280px) {
+
+}
+
+@media screen and (min-width: 1440px) {
+
+}
