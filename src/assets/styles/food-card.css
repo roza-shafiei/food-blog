@@ -1,0 +1,47 @@
+.food-card {
+    width: 100%;
+    border-radius: var(--default-border-radius);
+    border: 1px solid #26252216;
+    background: var(--color-light-white-150);
+
+    .food-card__img {
+        width: 100%;
+        height: 234px;
+        background-position: center;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        background: url("/public/images/home/recipe.jpg");
+        border-top-left-radius: var(--default-border-radius);
+        border-top-right-radius: var(--default-border-radius);
+    }
+
+    .food-card__content {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .food-card__title {
+            font-family: Montserrat;
+            font-weight: 700;
+            color: var(--color-light-black-750)
+        }
+
+        .food-card__desc {
+            font-weight: 300;
+            color: var(--color-light-black-750)
+        }
+
+        .food-card__info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            span {
+                font-size: 12px;
+                font-weight: 500;
+            }
+        }
+    }
+
+}
