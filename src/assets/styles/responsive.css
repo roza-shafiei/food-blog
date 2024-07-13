@@ -26,6 +26,17 @@
         width: 100%;
         max-width: 100%;
     }
+
+    .featured-recipes {
+        padding: 24px;
+
+    }
+
+    .featured-recipes__header {
+        flex-direction: column;
+        align-items: start;
+
+    }
 }
 
 @media screen and (min-width: 600px) {
@@ -71,6 +82,17 @@
     .palette__list, .palette__content {
         width: 40%;
         max-width: 40%;
+    }
+
+    .featured-recipes {
+        padding: 40px;
+
+    }
+
+    .featured-recipes__header {
+        flex-direction: row;
+        align-items: center;
+
     }
 }
 

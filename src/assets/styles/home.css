@@ -1,3 +1,5 @@
+@import "food-card.css";
+
 .main-content {
     margin-top: 90px;
 }
@@ -93,11 +95,6 @@
         align-items: start;
         gap: 12px;
 
-        .palette__content__title {
-            font-size: 40px;
-            font-family: Montserrat;
-            font-weight: 700;
-        }
 
         .palette__content__desc {
             font-size: 18px;
@@ -108,4 +105,40 @@
 }
 
 /*finish diverse palette section*/
+/*start featured recipes section*/
+.featured-recipes {
+    margin-top: 16px;
+    display: flex;
+    border-radius: var(--default-border-radius);
+    border: 1px solid #26252224;
+    flex-direction: column;
+    gap: 40px;
+
+    .featured-recipes__header {
+        display: flex;
+        justify-content: space-between;
+
+        .slider-btns {
+            display: flex;
+            gap: 4px;
+        }
+
+        .slider-btn__container {
+            width: 35px;
+            height: 35px;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-light-black-750);
+        }
+    }
+
+    .featured-recipes__content {
+        display: flex;
+        gap: 16px;
+    }
+}
+
+/*finish featured recipes section*/
 
