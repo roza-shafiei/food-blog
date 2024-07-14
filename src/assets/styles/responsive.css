@@ -4,6 +4,10 @@
 
     }
 
+    .main-title {
+        font-size: 26px;
+    }
+
     .hero-section__content__title {
         font-size: 38px;
     }
@@ -37,6 +41,11 @@
         align-items: start;
 
     }
+
+    .embark-journey__recipes {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
 }
 
 @media screen and (min-width: 600px) {
@@ -64,6 +73,10 @@
 
     .container {
         padding: 16px 32px;
+    }
+
+    .main-title {
+        font-size: 40px;
     }
 
     .hero-section__content__title {
@@ -94,9 +107,18 @@
         align-items: center;
 
     }
+
+    .embark-journey__recipes {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media screen and (min-width: 1024px) {
+    .embark-journey__recipes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
 
 }
 

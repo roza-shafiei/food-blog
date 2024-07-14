@@ -56,6 +56,7 @@ i {
 }
 
 .primary-btn:hover {
+    opacity: 80%;
 }
 
 .secondary-btn {
@@ -69,7 +70,6 @@ i {
 }
 
 .main-title {
-    font-size: 40px;
     font-family: Montserrat;
     font-weight: 700;
     text-transform: uppercase;
