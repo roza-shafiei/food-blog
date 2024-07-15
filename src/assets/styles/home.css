@@ -273,7 +273,6 @@
     }
 
     .subscribe__email-box {
-        width: 40%;
         margin: 2rem auto;
         background: var(--color-light-white-100);
         border-radius: 24px;
@@ -295,13 +294,15 @@
 
 .subscribe::after, .subscribe::before {
     height: 96%;
+    width: 96%;
     content: '';
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #87352d;
     opacity: 12%;
     border-radius: 100%;
+    z-index: -1;
 
 }
 
@@ -313,5 +314,6 @@
 .subscribe::before {
     bottom: -50%;
     border-radius: 100%;
+
 
 }
