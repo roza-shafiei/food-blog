@@ -1,0 +1,26 @@
+/*start best recipes*/
+.best-recipes {
+    display: grid;
+    grid-gap: 1rem;
+
+
+    .best__card {
+        background-position: center;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        border-radius: var(--default-border-radius);
+        cursor: pointer;
+        position: relative;
+    }
+
+
+    .best__card__name {
+        position: absolute;
+        bottom: 5%;
+        left: 5%;
+        color: var(--color-light-bg);
+        font-family: Montserrat;
+        font-size: 30px;
+        font-weight: 700;
+    }
+}

@@ -76,6 +76,10 @@ i {
     line-height: 1.1;
 }
 
+.main-content {
+    margin-top: 90px;
+}
+
 /*start navbar style*/
 #navbar {
     max-width: calc(var(--max-width) - 64px);

@@ -1,9 +1,5 @@
 @import "food-card.css";
 
-.main-content {
-    margin-top: 90px;
-}
-
 .tag {
     padding: 4px 8px;
     background: var(--color-light-danger);

@@ -72,6 +72,13 @@
     .subscribe__email-box {
         width: 90%;
     }
+
+    /*start allRecipes page responsive style*/
+    .best-recipes {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 520px);
+    }
+
 }
 
 @media screen and (min-width: 600px) {
@@ -176,6 +183,17 @@
     .subscribe__email-box {
         width: 60%;
     }
+
+    /*start allRecipes page responsive style*/
+    .best-recipes {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 520px 260px;
+    }
+
+    .best__card:first-child {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -232,6 +250,18 @@
         border-bottom-width: 0;
         min-width: 160px;
 
+    }
+
+    /*start allRecipes page responsive style*/
+    .best-recipes {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 260px);
+
+    }
+
+    .best__card:first-child {
+        grid-column: span 3;
+        grid-row: span 2;
     }
 }
 
