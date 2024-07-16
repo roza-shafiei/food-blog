@@ -3,10 +3,89 @@
         padding: 16px;
 
     }
+
+    .main-title {
+        font-size: 26px;
+    }
+
+    .hero-section__content__title {
+        font-size: 38px;
+    }
+
+    .hero-section__content__desc {
+        font-size: 16px;
+    }
+
+    .hero-section__content__button {
+        width: 100%;
+    }
+
+    .palette {
+        flex-direction: column;
+        padding: 24px;
+
+    }
+
+    .palette__list, .palette__content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .featured-recipes {
+        padding: 24px;
+
+    }
+
+    .featured-recipes__header {
+        flex-direction: column;
+        align-items: start;
+
+    }
+
+    .embark-journey__recipes {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .about-us {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 24px;
+    }
+
+    .footer__top {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .footer__list {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .footer__list__item {
+        width: 100%;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--color-light-black-100);
+    }
+
+    .subscribe__email-box {
+        width: 90%;
+    }
 }
 
 @media screen and (min-width: 600px) {
+    .hero-section__content__title {
+        font-size: 56px;
+    }
 
+    .hero-section__content__desc {
+        font-size: 18px;
+    }
+
+    .hero-section__content__button {
+        width: fit-content;
+    }
 }
 
 @media screen and (min-width: 800px) {
@@ -21,10 +100,139 @@
     .container {
         padding: 16px 32px;
     }
+
+    .main-title {
+        font-size: 40px;
+    }
+
+    .hero-section__content__title {
+        font-size: 80px;
+    }
+
+    .hero-section__content__desc {
+        font-size: 22px;
+    }
+
+    .palette {
+        padding: 40px;
+        flex-direction: row;
+    }
+
+    .palette__list, .palette__content {
+        width: 40%;
+        max-width: 40%;
+    }
+
+    .featured-recipes {
+        padding: 40px;
+
+    }
+
+    .featured-recipes__header {
+        flex-direction: row;
+        align-items: center;
+
+    }
+
+    .embark-journey__recipes {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-us {
+        padding: 40px;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(2, 320px);
+    }
+
+    .about-us__content {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 1;
+    }
+
+    .about-us__image-first {
+        grid-column-start: 5;
+        grid-column-end: 9;
+        grid-row-start: 1;
+        grid-row-end: 1;
+
+    }
+
+    .about-us__image-second {
+        grid-row-start: 2;
+        grid-column-start: 5;
+        grid-column-end: 9;
+
+    }
+
+    .about-us__image-third {
+        grid-row-start: 2;
+        grid-column-end: 5;
+        grid-column-start: 1;
+    }
+
+    .subscribe__email-box {
+        width: 60%;
+    }
 }
 
 @media screen and (min-width: 1024px) {
+    .embark-journey__recipes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
 
+    .about-us__content {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+    }
+
+    .about-us__image-first {
+        grid-column-start: 4;
+        grid-column-end: 6;
+        grid-row-start: 1;
+        grid-row-end: 1;
+
+    }
+
+    .about-us__image-second {
+        grid-column-start: 6;
+        grid-column-end: 9;
+        grid-row-start: 1;
+        grid-row-end: -1;
+
+    }
+
+    .about-us__image-third {
+        grid-row-start: 2;
+        grid-column-end: 6;
+        grid-column-start: 1;
+    }
+
+    .subscribe__email-box {
+        width: 40%;
+    }
+
+
+    .footer__top {
+        flex-direction: row;
+    }
+
+    .footer__list {
+        flex-direction: row;
+        width: fit-content;
+    }
+
+    .footer__list__item {
+        padding: 0 2rem;
+        border-right: 1px solid var(--color-light-black-100);
+        border-bottom-width: 0;
+        min-width: 160px;
+
+    }
 }
 
 @media screen and (min-width: 1280px) {
