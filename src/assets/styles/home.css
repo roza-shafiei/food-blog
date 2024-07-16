@@ -158,50 +158,12 @@
             cursor: pointer;
         }
 
-        .embark-journey__tag:hover {
-            border-color: var(--color-light-black-900);
-            color: var(--color-light-black-900);
-        }
-
-        .embark-journey__tag.active-tag {
-            border-color: var(--color-light-black-900);
-            color: var(--color-light-black-900);
-            background-color: var(--color-light-primary);
-        }
-
     }
 
     .embark-journey__recipes {
         margin-top: 40px;
 
         gap: 1rem;
-    }
-
-    .embark-journey__pagination {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 40px;
-
-        .embark-journey__pagination-box {
-            padding: 0.5rem 1rem;
-            /*background-color: var(--color-light-white-100);*/
-            border-radius: 8px;
-            border: 1px solid var(--color-light-black-100);
-            color: var(--color-light-black-100);
-            font-weight: 500;
-            font-size: 14px;
-            transition: 0.2s;
-            cursor: pointer;
-        }
-
-        .embark-journey__pagination-box.active-page {
-            border-color: var(--color-light-black-900);
-            color: var(--color-light-black-900);
-            background-color: var(--color-light-primary);
-        }
-
     }
 }
 
