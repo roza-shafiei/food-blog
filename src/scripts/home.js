@@ -98,11 +98,12 @@ function createFoodCard(tagRecipesList) {
             cardTitle.classList.add('food-card__title')
             cardDesc.classList.add('food-card__desc')
             cardTitle.textContent = `${recipe.name}`
-            cardDesc.textContent = `${recipe.description}`
+            cardDesc.innerHTML = `<p class="food-card__desc"><span style="font-weight: 500">Ingredients:</span>  ${recipe.ingredients}</p>
+`
             cardInfo.classList.add('food-card__info')
             cardButton.className = 'secondary-btn btn'
             cardButton.textContent = 'view recipe'
-            cardDetails.textContent = `${recipe.prepTimeMinutes} Min - ${recipe.servings} Serves`
+            cardDetails.textContent = `${recipe.prepTimeMinutes} Min - ${recipe.servings} Serves - ${recipe.rating} Rating`
             cardDetails.classList.add('food-card__info--span')
             cardContent.append(cardTitle, cardDesc, cardInfo)
             cardInfo.append(cardDetails, cardButton)
