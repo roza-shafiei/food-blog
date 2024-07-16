@@ -26,7 +26,6 @@ function showBestRecipes(items) {
     }
 }
 
-
 async function getTags() {
     try {
         tagsLoading = true
@@ -41,8 +40,8 @@ async function getTags() {
             tagsContainer.appendChild(spanElem)
         })
         let allRecipesTagList = document.querySelectorAll('.search-tag');
-        allRecipesTagList[0]?.classList.add('active-tag')
-        getSelectedTagRecipes(allRecipesTagList[0].textContent)
+        allRecipesTagList[1]?.classList.add('active-tag')
+        getSelectedTagRecipes(allRecipesTagList[1].textContent)
 
     } catch (e) {
         console.log(e)
@@ -129,7 +128,7 @@ function createFoodCard(tagRecipesList) {
             cardInfo.classList.add('food-card__info')
             cardButton.className = 'secondary-btn btn'
             cardButton.textContent = 'view recipe'
-            cardDetails.textContent = `${recipe.prepTimeMinutes} Min - ${recipe.servings} Serves - ${recipe.rating} Rating`
+            cardDetails.textContent = `${recipe.prepTimeMinutes} Min - ${recipe.servings} Serves`
             cardDetails.classList.add('food-card__info--span')
             cardContent.append(cardTitle, cardDesc, cardInfo)
             cardInfo.append(cardDetails, cardButton)

@@ -40,7 +40,7 @@
     justify-content: center;
     gap: 8px;
     text-align: center;
-    margin-top: 40px;
+    margin: 40px 0;
 
 
     .tags__container {
@@ -60,6 +60,5 @@
 .tags__recipes {
     margin-top: 40px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
 }

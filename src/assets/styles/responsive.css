@@ -74,9 +74,13 @@
     }
 
     /*start allRecipes page responsive style*/
-    .best-recipes {
+    .best-recipes__container {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(3, 520px);
+    }
+
+    .tags__recipes {
+        grid-template-columns: 1fr;
     }
 
 }
@@ -185,7 +189,7 @@
     }
 
     /*start allRecipes page responsive style*/
-    .best-recipes {
+    .best-recipes__container {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 520px 260px;
     }
@@ -193,6 +197,10 @@
     .best__card:first-child {
         grid-column: span 2;
         grid-row: span 1;
+    }
+
+    .tags__recipes {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -253,7 +261,7 @@
     }
 
     /*start allRecipes page responsive style*/
-    .best-recipes {
+    .best-recipes__container {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(2, 260px);
 
@@ -262,6 +270,10 @@
     .best__card:first-child {
         grid-column: span 3;
         grid-row: span 2;
+    }
+
+    .tags__recipes {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
