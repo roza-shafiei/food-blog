@@ -31,9 +31,9 @@ function generateSlider(recipes) {
 }
 
 function createSlide() {
-    new Swiper(".mySwiper", {
+    new Swiper(".swiper", {
         autoplay: {
-            delay: 5000,
+            delay: 2000,
         },
         slidesPerView: 1,
         spaceBetween: 16,
