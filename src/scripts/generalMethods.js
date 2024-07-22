@@ -30,32 +30,7 @@ function createFoodCard(itemsList, itemsContainer, cardPerPage, page) {
     if (slicedTagRecipes.length > 0) {
         itemsContainer.innerHTML = ''
         slicedTagRecipes.forEach(recipe => {
-            const card = document.createElement('div')
-            const cardInfo = document.createElement('div')
-            const imgContainer = document.createElement('div')
-            const cardContent = document.createElement('div')
-            const cardTitle = document.createElement('p')
-            const cardDesc = document.createElement('p')
-            const cardDetails = document.createElement('span')
-            const cardButton = document.createElement('button')
-            card.classList.add('food-card')
-            imgContainer.classList.add('food-card__img')
-            imgContainer.style.background = `url(${recipe.image})`
-            cardContent.classList.add('food-card__content')
-            cardTitle.classList.add('food-card__title')
-            cardDesc.classList.add('food-card__desc')
-            cardTitle.textContent = `${recipe.name}`
-            cardDesc.innerHTML = `<p class="food-card__desc"><span style="font-weight: 500">Ingredients:</span>  ${recipe.ingredients}</p>
-`
-            cardInfo.classList.add('food-card__info')
-            cardButton.className = 'secondary-btn btn'
-            cardButton.textContent = 'view recipe'
-            cardDetails.textContent = `${recipe.prepTimeMinutes} Min - ${recipe.servings} Serves`
-            cardDetails.classList.add('food-card__info--span')
-            cardContent.append(cardTitle, cardDesc, cardInfo)
-            cardInfo.append(cardDetails, cardButton)
-            card.append(imgContainer, cardContent)
-            itemsContainer.appendChild(card)
+            createSingleFoodCard(recipe, itemsContainer)
         })
     }
 }
@@ -63,6 +38,22 @@ function createFoodCard(itemsList, itemsContainer, cardPerPage, page) {
 function getUrlParam(item) {
     let createParams = new URLSearchParams()
     return createParams.get(item)
+}
+
+function createSingleFoodCard(recipe, itemsContainer) {
+    itemsContainer.insertAdjacentHTML('beforeend', `<div class="food-card swiper-slide" style="min-width: 40%">
+            <div class="food-card__img" style="background: url('${recipe.image}')"></div>
+                <div class="food-card__main-content">
+                <div class="food-card__content">
+                     <p class="food-card__title">${recipe.name}</p>
+                     <p class="food-card__desc"><span style="font-weight: 500">Ingredients:</span>  ${recipe.ingredients}</p>
+                </div>
+                      <div class="food-card__info">
+                             <span class="food-card__info--span">${recipe.prepTimeMinutes} Min - ${recipe.servings} Serves - ${recipe.rating} Rating</span>
+                             <button class="secondary-btn btn">view recipe</button>
+                 </div>
+            </div>
+       </div>`)
 }
 
 export {generatePagination, createFoodCard, getUrlParam}
