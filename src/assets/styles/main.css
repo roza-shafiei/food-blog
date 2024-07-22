@@ -80,6 +80,16 @@ i {
     margin-top: 90px;
 }
 
+.tag {
+    padding: 4px 8px;
+    background: var(--color-light-danger);
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: var(--color-light-bg);
+    border-radius: 12px;
+}
+
 /*start navbar style*/
 #navbar {
     max-width: calc(var(--max-width) - 64px);
