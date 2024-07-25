@@ -1,3 +1,5 @@
+import {createFoodCard, generatePagination} from "./generalMethods.js";
+
 const tagsContainer = document.querySelector('.embark-journey__tags-container');
 const embarkJourneyRecipes = document.querySelector('.embark-journey__recipes');
 const embarkJourneyPagination = document.querySelector('.pagination');
@@ -7,6 +9,15 @@ const cardPerPage = 6
 let page = 1
 window.addEventListener('load', () => {
     getTags()
+    window.onSelectingTag = (event) => {
+        page = 1
+        let currentActive = document.querySelector('.active-tag')
+        if (currentActive) {
+            currentActive.classList.remove('active-tag')
+        }
+        event.target.classList.add('active-tag')
+        getSelectedTagRecipes(event.target.textContent)
+    }
 })
 
 async function getTags() {
@@ -16,11 +27,12 @@ async function getTags() {
         const data = await res.json()
         let tags = data.slice(4, 12).reverse()
         tags.forEach((tag, i) => {
-            tagsContainer.insertAdjacentHTML('afterbegin', `<span class="search-tag" onclick="onSelectingTag(event)">${tag}</span>`)
+            tagsContainer.insertAdjacentHTML('beforeend', `<span class="search-tag" onclick="onSelectingTag(event)">${tag}</span>`)
         })
+
         let embarkJourneyTagList = document.querySelectorAll('.search-tag');
         embarkJourneyTagList[0]?.classList.add('active-tag')
-        getSelectedTagRecipes(embarkJourneyTagList[0].textContent)
+        getSelectedTagRecipes(embarkJourneyTagList[0]?.textContent)
 
     } catch (e) {
         console.log(e)
@@ -29,15 +41,6 @@ async function getTags() {
     }
 }
 
-function onSelectingTag(event) {
-    page = 1
-    let currentActive = document.querySelector('.active-tag')
-    if (currentActive) {
-        currentActive.classList.remove('active-tag')
-    }
-    event.target.classList.add('active-tag')
-    getSelectedTagRecipes(event.target.textContent)
-}
 
 async function getSelectedTagRecipes(name) {
     try {
@@ -45,7 +48,9 @@ async function getSelectedTagRecipes(name) {
         const res = await fetch(`https://dummyjson.com/recipes/tag/${name}`)
         const data = await res.json()
         let tagRecipesList = data?.recipes
-        generatePagination(tagRecipesList)
+        generatePagination(tagRecipesList, embarkJourneyPagination, embarkJourneyRecipes, cardPerPage, page)
+        createFoodCard(tagRecipesList, embarkJourneyRecipes, cardPerPage, page)
+
     } catch (err) {
         console.log(err)
     } finally {
@@ -53,63 +58,5 @@ async function getSelectedTagRecipes(name) {
     }
 }
 
-function generatePagination(tagRecipesList) {
-    let paginationBoxCount = Math.floor(tagRecipesList.length / cardPerPage)
-    let fragment = document.createDocumentFragment()
-    embarkJourneyPagination.innerHTML = ''
-    for (let index = 0; index < paginationBoxCount; index++) {
-        const span = document.createElement('span')
-        span.classList.add('pagination-box')
-        span.innerText = `${index + 1}`
-        if (page === Number(span.textContent)) {
-            span.classList.add('active-page')
-        }
-        span.addEventListener('click', (event) => {
-            let currentActivePage = document.querySelector('.active-page')
-            page = event.target.textContent
-            currentActivePage.classList.remove('active-page')
-            event.target.classList.add('active-page')
-            createFoodCard(tagRecipesList)
-        })
-        fragment.appendChild(span)
-    }
-    createFoodCard(tagRecipesList)
-    embarkJourneyPagination.append(fragment)
-}
 
-function createFoodCard(tagRecipesList) {
-    let endIndex = page * cardPerPage
-    let startIndex = endIndex - cardPerPage
-    let slicedTagRecipes = tagRecipesList.slice(startIndex, endIndex)
-    if (slicedTagRecipes.length > 0) {
-        embarkJourneyRecipes.innerHTML = ''
-        slicedTagRecipes.forEach(recipe => {
-            const card = document.createElement('div')
-            const cardInfo = document.createElement('div')
-            const imgContainer = document.createElement('div')
-            const cardContent = document.createElement('div')
-            const cardTitle = document.createElement('p')
-            const cardDesc = document.createElement('p')
-            const cardDetails = document.createElement('span')
-            const cardButton = document.createElement('button')
-            card.classList.add('food-card')
-            imgContainer.classList.add('food-card__img')
-            imgContainer.style.background = `url(${recipe.image})`
-            cardContent.classList.add('food-card__content')
-            cardTitle.classList.add('food-card__title')
-            cardDesc.classList.add('food-card__desc')
-            cardTitle.textContent = `${recipe.name}`
-            cardDesc.innerHTML = `<p class="food-card__desc"><span style="font-weight: 500">Ingredients:</span>  ${recipe.ingredients}</p>
-`
-            cardInfo.classList.add('food-card__info')
-            cardButton.className = 'secondary-btn btn'
-            cardButton.textContent = 'view recipe'
-            cardDetails.textContent = `${recipe.prepTimeMinutes} Min - ${recipe.servings} Serves - ${recipe.rating} Rating`
-            cardDetails.classList.add('food-card__info--span')
-            cardContent.append(cardTitle, cardDesc, cardInfo)
-            cardInfo.append(cardDetails, cardButton)
-            card.append(imgContainer, cardContent)
-            embarkJourneyRecipes.appendChild(card)
-        })
-    }
-}
+

@@ -56,5 +56,5 @@ function createSingleFoodCard(recipe, itemsContainer) {
        </div>`)
 }
 
-export {generatePagination, createFoodCard, getUrlParam}
+export {generatePagination, createFoodCard, getUrlParam, createSingleFoodCard}
 export default {}
