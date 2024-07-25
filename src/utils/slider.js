@@ -13,17 +13,19 @@ window.addEventListener('load', () => {
 
 function generateSlider(recipes) {
     for (let recipe of recipes) {
-        swiperWrapper.insertAdjacentHTML('afterbegin', `<div class="food-card swiper-slide" style="min-width: 40%">
-            <div class="food-card__img" style="background: url('${recipe.image}')"></div>
+        swiperWrapper.insertAdjacentHTML('beforeend', `<div class="food-card swiper-slide" style="min-width: 40%">
+            <div class="food-card__img slide__img" style="background: url('${recipe.image}')"></div>
+                <div class="food-card__main-content slider__main-content">
                 <div class="food-card__content">
                      <p class="food-card__title">${recipe.name}</p>
-                          <p class="food-card__desc"><span style="font-weight: 500">Ingredients:</span>  ${recipe.ingredients}</p>
-                                <div class="food-card__info">
-                                            <span class="food-card__info--span">${recipe.prepTimeMinutes} Min - ${recipe.servings} Serves - ${recipe.rating} Rating</span>
-                                            <button class="secondary-btn btn">view recipe</button>
-                                </div>
-                      </div>
-            </div>`)
+                     <p class="food-card__desc"><span style="font-weight: 500">Ingredients:</span>  ${recipe.ingredients}</p>
+                </div>
+                      <div class="food-card__info">
+                             <span class="food-card__info--span">${recipe.prepTimeMinutes} Min - ${recipe.servings} Serves - ${recipe.rating} Rating</span>
+                             <button class="secondary-btn btn">view recipe</button>
+                 </div>
+            </div>
+       </div>`)
     }
     setTimeout(() => {
         createSlide()
@@ -32,9 +34,9 @@ function generateSlider(recipes) {
 
 function createSlide() {
     new Swiper(".swiper", {
-        autoplay: {
-            delay: 2000,
-        },
+        // autoplay: {
+        //     delay: 2000,
+        // },
         slidesPerView: 1,
         spaceBetween: 16,
         breakpoints: {

@@ -260,3 +260,11 @@
     width: 10px;
     height: 10px;
 }
+
+.slider__main-content {
+    height: calc(100% - 330px) !important;
+}
+
+.slide__img {
+    height: 300px !important;
+}
