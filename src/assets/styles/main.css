@@ -208,16 +208,20 @@ i {
     color: var(--color-light-black-750) !important;
 }
 
-.active-link::before {
+.navbar__list--link::before {
     position: absolute;
     bottom: 0;
     height: 4px;
-    width: 0; /* Start with 0 width */
+    width: 0;
     content: '';
     background: var(--color-light-danger);
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
-    transition: width 0.3s ease; /* Adjust the duration as needed */
+    transition: width 0.3s ease;
+}
+
+.navbar__list--link.active-link::before {
+    width: 100%;
 }
 
 
