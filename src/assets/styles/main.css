@@ -1,10 +1,15 @@
 @import "../fonts/Roboto/index.css";
 @import "../fonts/Montserrat/index.css";
+@import "../fonts/Apple/index.css";
+
 @import "../styles/variables.css";
+
 
 /*default style*/
 html {
     box-sizing: border-box;
+    scroll-behavior: smooth;
+
 }
 
 body {
@@ -16,6 +21,12 @@ body {
     background: var(--color-light-bg);
     min-height: 100vh;
 }
+
+html, body {
+    transition: opacity 10s ease-in-out;
+    opacity: 1;
+}
+
 
 *, *::before, *::after {
     outline: none;
@@ -125,6 +136,11 @@ i {
             font-weight: 500;
             font-size: 14px;
             color: #26252260;
+            transition: color ease 400ms;
+        }
+
+        .navbar__list--link:hover {
+            color: var(--color-light-black-750);
         }
     }
 
@@ -189,19 +205,19 @@ i {
 }
 
 .active-link {
-    color: var(--color-light-black-750) !important
+    color: var(--color-light-black-750) !important;
 }
 
 .active-link::before {
     position: absolute;
     bottom: 0;
     height: 4px;
-    width: 100%;
+    width: 0; /* Start with 0 width */
     content: '';
     background: var(--color-light-danger);
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
-
+    transition: width 0.3s ease; /* Adjust the duration as needed */
 }
 
 
@@ -385,4 +401,82 @@ i {
         background-color: var(--color-light-primary);
     }
 
+}
+
+.hero-title {
+    font-family: Montserrat;
+    font-weight: 900;
+    line-height: 1.1 !important;
+}
+
+/*start subscribe section*/
+.subscribe {
+    margin-top: 80px;
+    border-radius: var(--default-border-radius);
+    background: #EE6352FF;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    z-index: 3;
+
+
+    .subscribe-wrapper {
+        display: flex;
+        max-width: 70%;
+        margin: 0 auto;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--color-light-white-100);
+    }
+
+    .subscribe__email-box {
+        margin: 2rem auto;
+        background: var(--color-light-white-100);
+        border-radius: 24px;
+        padding: 0.2rem 0.5rem;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+
+        input {
+            grid-column: span 3;
+            height: 100%;
+            border: none;
+            outline: none;
+            border-radius: 24px;
+        }
+    }
+}
+
+.subscribe::after, .subscribe::before {
+    height: 96%;
+    width: 96%;
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #87352d;
+    opacity: 12%;
+    border-radius: 100%;
+    z-index: -1;
+
+}
+
+.subscribe::after {
+    top: -50%;
+    border-radius: 100%;
+}
+
+.subscribe::before {
+    bottom: -50%;
+    border-radius: 100%;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Adjust the duration as needed */
 }
