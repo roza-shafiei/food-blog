@@ -8,7 +8,7 @@
         font-size: 26px;
     }
 
-    .hero-section__content__title {
+    .hero-title {
         font-size: 38px;
     }
 
@@ -83,10 +83,33 @@
         grid-template-columns: 1fr;
     }
 
+    /*start about page*/
+    .about__header {
+        flex-direction: column;
+
+        .about__header__title, .about__header__desc {
+            width: 100%;
+        }
+    }
+
+    .about__details--me {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about__imag-gallery {
+        grid-template-columns:  1fr;
+        grid-template-rows: repeat(8, 1fr);
+    }
+
+    .about__icons-content {
+        grid-template-columns: 1fr;
+        grid-template-rows:  repeat(3, 1fr);
+    }
 }
 
 @media screen and (min-width: 600px) {
-    .hero-section__content__title {
+    .hero-title {
         font-size: 56px;
     }
 
@@ -96,6 +119,17 @@
 
     .hero-section__content__button {
         width: fit-content;
+    }
+
+    /*start about page*/
+    .about__imag-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .about__icons-content {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows:  1fr;
     }
 }
 
@@ -116,7 +150,7 @@
         font-size: 40px;
     }
 
-    .hero-section__content__title {
+    .hero-title {
         font-size: 80px;
     }
 
@@ -202,6 +236,9 @@
     .tags__recipes {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /*about page*/
+
 }
 
 @media screen and (min-width: 1024px) {
@@ -275,6 +312,27 @@
     .tags__recipes {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    /*start about page*/
+    .about__header {
+        flex-direction: row;
+
+        .about__header__title, .about__header__desc {
+            width: 50%;
+        }
+    }
+
+    .about__details--me {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr );
+        grid-template-rows: 1fr;
+    }
+
+    .about__imag-gallery {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
 }
 
 @media screen and (min-width: 1280px) {

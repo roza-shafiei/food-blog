@@ -1,6 +1,7 @@
 const navbarMobileIcon = document.querySelector('.navbar-mobile__icon--container');
 const navbarMobileMenu = document.querySelector('.navbar-mobile__menu')
 const desktopNavbarItems = document.querySelectorAll('.navbar__list--link');
+let containerWrapper = document.querySelector('.container__wrapper');
 window.addEventListener('load', () => {
     let selectedPage = window.location.pathname.split('/').pop();
     desktopNavbarItems.forEach(item => {
@@ -11,8 +12,15 @@ window.addEventListener('load', () => {
 desktopNavbarItems.forEach(item => {
     let currentDesktopActiveLink = document.querySelector('.active-link');
     item.addEventListener('click', (e) => {
-        e.target.classList.toggle('active-link');
-        currentDesktopActiveLink.classList.remove('active-link');
+        e.preventDefault();
+        setTimeout(() => {
+            if (containerWrapper.classList.contains('fade-out')) {
+                window.location = e.target.href;
+                currentDesktopActiveLink.classList.remove('active-link');
+                e.target.classList.toggle('active-link');
+            }
+        }, 600)
+        containerWrapper.classList.add('fade-out')
     })
 })
 let showMobileMenu = false
@@ -30,5 +38,3 @@ navbarMobileIcon.addEventListener('click', (event) => {
 
     }
 })
-
-
