@@ -69,6 +69,14 @@
         border-bottom: 1px solid var(--color-light-black-100);
     }
 
+    .subscribe {
+        padding: 40px 16px;
+    }
+
+    .subscribe-wrapper {
+        max-width: 100%;
+    }
+
     .subscribe__email-box {
         width: 90%;
     }
@@ -223,8 +231,16 @@
         grid-column-start: 1;
     }
 
+    .subscribe {
+        padding: 40px;
+    }
+
+    .subscribe-wrapper {
+        max-width: 80%;
+    }
+
     .subscribe__email-box {
-        width: 60%;
+        width: 70%;
     }
 
     /*start allRecipes page responsive style*/
@@ -280,8 +296,12 @@
         grid-column-start: 1;
     }
 
+    .subscribe-wrapper {
+        max-width: 50%;
+    }
+
     .subscribe__email-box {
-        width: 40%;
+        width: 100%;
     }
 
 

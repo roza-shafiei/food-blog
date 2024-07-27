@@ -4,11 +4,15 @@ const desktopNavbarItems = document.querySelectorAll('.navbar__list--link');
 const mobileNavbarItems = document.querySelectorAll('.navbar-mobile__list--link');
 const navbarActionsSearch = document.querySelector('.navbar__actions__search');
 const navbarMobileActionsSearch = document.querySelector('.navbar-mobile__actions__search');
+const navbarMobileSubscribe = document.querySelector('.navbar-mobile__actions__subscribe');
 let containerWrapper = document.querySelector('.container__wrapper');
 const subscribeBtn = document.querySelector('.navbar__actions__subscribe');
 const searchModal = document.querySelector('.search-modal');
 const modalIconClose = document.querySelector('.modal__icon--close');
 const modalIconSearch = document.querySelector('.modal__icon--search');
+const emailUser = document.querySelector('#email-user');
+const emailError = document.querySelector('.email-error')
+const footerSubscribeBtn = document.querySelector('.footer-subscribe__btn');
 let showMobileMenu = false
 let showSearchModal = false
 
@@ -47,21 +51,7 @@ mobileNavbarItems.forEach(link => {
 })
 
 // handle the display of mobile navbar menu
-navbarMobileIcon.addEventListener('click', (event) => {
-    if (!showMobileMenu) {
-        navbarMobileMenu.style.visibility = 'visible'
-        navbarMobileMenu.style.opacity = '100%'
-        document.body.style.overflow = 'hidden'
-        document.body.style.maxHeight = '100vh'
-        showMobileMenu = true
-    } else {
-        navbarMobileMenu.style.visibility = 'hidden'
-        navbarMobileMenu.style.opacity = '0%'
-        document.body.style.overflow = 'auto'
-        document.body.style.maxHeight = 'unset'
-        showMobileMenu = false
-    }
-})
+navbarMobileIcon.addEventListener('click', onDisplayingMobileNavbar)
 
 
 //handle search modal display
@@ -89,4 +79,41 @@ function onDisplayingSearchModal() {
     document.body.style.maxHeight = '100vh'
 }
 
+function onDisplayingMobileNavbar() {
+    if (!showMobileMenu) {
+        navbarMobileMenu.style.visibility = 'visible'
+        navbarMobileMenu.style.opacity = '100%'
+        document.body.style.overflow = 'hidden'
+        document.body.style.maxHeight = '100vh'
+        showMobileMenu = true
+    } else {
+        navbarMobileMenu.style.visibility = 'hidden'
+        navbarMobileMenu.style.opacity = '0%'
+        document.body.style.overflow = 'auto'
+        document.body.style.maxHeight = 'unset'
+        showMobileMenu = false
+    }
+}
+
 navbarMobileActionsSearch.addEventListener('click', onDisplayingSearchModal)
+navbarMobileSubscribe.addEventListener('click', () => {
+    onDisplayingMobileNavbar()
+    navbarMobileSubscribe.href = '#subscribe__section'
+})
+
+emailUser.addEventListener('keyup', checkEmail)
+
+function checkEmail() {
+    const regex = /^\S+@\S+\.\S+$/
+    if (!regex.test(emailUser.value)) {
+        emailError.textContent = 'invalid'
+        footerSubscribeBtn.disabled = true
+        footerSubscribeBtn.classList.add('disabled-btn')
+
+
+    } else if (emailUser.value && regex.test(emailUser.value)) {
+        emailError.textContent = ''
+        footerSubscribeBtn.disabled = false
+        footerSubscribeBtn.classList.remove('disabled-btn')
+    }
+}
