@@ -4,13 +4,22 @@ let cardPerPage = 6
 let page = 1
 let loading = false
 let tagsLoading = false
+let selectedFoodLoading = false
+let selectedTeg = 'All'
 const bestRecipesContainer = document.querySelector('.best-recipes__container');
 const tagsContainer = document.querySelector('.tags__container');
 const tagsRecipesPagination = document.querySelector('.pagination');
 const tagsRecipesContainer = document.querySelector('.tags__recipes');
+const recipesSearchInput = document.querySelector('#recipes__search-input');
 window.addEventListener('DOMContentLoaded', () => {
     getBestRecipes()
     getTags()
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedCat = urlParams.get('cat');
+    if (selectedCat) {
+        recipesSearchInput.value = selectedCat
+        getSelectedTagRecipes(selectedCat)
+    }
 })
 
 async function getBestRecipes() {
@@ -34,6 +43,7 @@ async function getTags() {
         const res = await fetch('https://dummyjson.com/recipes/tags', {method: 'GET'})
         const data = await res.json()
         const tags = data.slice(0, 30)
+        tags.unshift('All')
         tags.forEach((tag, i) => {
             const spanElem = document.createElement('span')
             spanElem.className = 'search-tag'
@@ -41,10 +51,7 @@ async function getTags() {
             spanElem.onclick = onSelectingTag
             tagsContainer.appendChild(spanElem)
         })
-        let allRecipesTagList = document.querySelectorAll('.search-tag');
-        allRecipesTagList[1]?.classList.add('active-tag')
-        getSelectedTagRecipes(allRecipesTagList[1].textContent)
-
+        addingActiveClassToTag()
     } catch (e) {
         console.log(e)
     } finally {
@@ -64,17 +71,45 @@ function onSelectingTag(event) {
 
 
 async function getSelectedTagRecipes(name) {
-    try {
-        loading = true
-        const res = await fetch(`https://dummyjson.com/recipes/tag/${name}`)
-        const data = await res.json()
-        let tagRecipesList = data?.recipes
-        generatePagination(tagRecipesList, tagsRecipesPagination, tagsRecipesContainer, cardPerPage, page)
-        createFoodCard(tagRecipesList, tagsRecipesContainer, cardPerPage, page)
-    } catch (err) {
-        console.log(err)
-    } finally {
-        loading = false
+    selectedTeg = name
+    addingActiveClassToTag()
+    if (selectedTeg === 'All') {
+        try {
+            loading = true
+            const res = await fetch('https://dummyjson.com/recipes')
+            const data = await res.json()
+            let tagRecipesList = data?.recipes
+            generatePagination(tagRecipesList, tagsRecipesPagination, tagsRecipesContainer, cardPerPage, page)
+            createFoodCard(tagRecipesList, tagsRecipesContainer, cardPerPage, page)
+        } catch (err) {
+            console.log(err)
+        } finally {
+            loading = false
+        }
+
+    } else {
+        try {
+            loading = true
+            const res = await fetch(`https://dummyjson.com/recipes/tag/${name}`)
+            const data = await res.json()
+            let tagRecipesList = data?.recipes
+            generatePagination(tagRecipesList, tagsRecipesPagination, tagsRecipesContainer, cardPerPage, page)
+            createFoodCard(tagRecipesList, tagsRecipesContainer, cardPerPage, page)
+        } catch (err) {
+            console.log(err)
+        } finally {
+            loading = false
+        }
     }
 }
 
+function addingActiveClassToTag() {
+    let allRecipesTagList = document.querySelectorAll('.search-tag');
+    allRecipesTagList.forEach(tag => {
+        if (tag.innerText.toLowerCase() === selectedTeg || tag.innerText.toUpperCase() === selectedTeg) {
+            tag.classList.add('active-tag')
+        }
+    })
+    // allRecipesTagList[0].classList.add('active-tag')
+    // getSelectedTagRecipes(selectedTeg)
+}

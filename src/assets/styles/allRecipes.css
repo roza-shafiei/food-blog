@@ -6,6 +6,42 @@
     flex-direction: column;
 }
 
+/*start search styles*/
+.recipes__search {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: var(--default-spacing) auto;
+
+    input {
+        width: calc(100% - 40px);
+        height: 40px;
+        background: #26252210;
+        border-radius: 1rem;
+        outline: none;
+        border: none;
+        padding: 0.5rem 1rem;
+    }
+
+
+    .recipes__search__icon {
+        font-size: 18px;
+        cursor: pointer;
+        display: inline-block;
+        padding: 11px 14px;
+        background: #26252210;
+        border-radius: 1rem;
+    }
+
+    .recipes__search__icon--search {
+        height: 40px;
+    }
+}
+
+/*finish search styles*/
+
 .best-recipes__container {
     display: grid;
     grid-gap: 1rem;

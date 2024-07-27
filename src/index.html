@@ -13,7 +13,6 @@
     <link href="/src/dependencies/fontawsome.min.css">
     <!--    reset default browsers styles-->
     <link href="assets/styles/reset.css" rel="stylesheet" type="text/css">
-
     <link href="/src/dependencies/swiper-bundle.min.css" rel="stylesheet">
     <link href="assets/styles/main.css" rel="stylesheet">
     <link href="assets/styles/home.css" rel="stylesheet">
@@ -32,7 +31,9 @@
             <li class="navbar__list__item"><a class="navbar__list--link" href="about.html">About us</a></li>
         </ul>
         <div class="navbar__actions">
-            <i class="fas fa-search navbar__actions__icon"></i>
+            <div class="navbar__actions__search">
+                <i class="fas fa-search"></i>
+            </div>
             <a class="navbar__actions__subscribe primary-btn btn" href='#subscribe__section'>Subscribe</a>
         </div>
     </nav>
@@ -45,12 +46,13 @@
             <div class="navbar-mobile__icon--container"><i class="fas fa-bars navbar-mobile__icon"></i></div>
             <div class="navbar-mobile__menu">
                 <ul class="navbar-mobile__list">
-                    <li class="navbar-mobile__list__item"><a class="navbar-mobile__list--link " href="index.html">Home</a>
+                    <li class="navbar-mobile__list__item"><a class="navbar-mobile__list--link "
+                                                             href="index.html">Home</a>
                     </li>
                     <li class="navbar-mobile__list__item"><a class="navbar-mobile__list--link"
                                                              href="allRecipes.html">Recipes</a></li>
-                    </li>
-                    <li class="navbar-mobile__list__item"><a class="navbar-mobile__list--link" href="about.html">About us</a>
+                    <li class="navbar-mobile__list__item"><a class="navbar-mobile__list--link" href="about.html">About
+                        us</a>
                     </li>
                 </ul>
                 <div class="navbar-mobile__actions">
@@ -58,13 +60,25 @@
                     <a class="navbar-mobile__actions__subscribe btn">Subscribe</a>
                 </div>
                 <div class="navbar-mobile__socials">
-                    <a href="https://desktop.telegram.org/" target="_blank"><i class="fab fa-telegram-plane social-icon"></i></a>
+                    <a href="https://desktop.telegram.org/" target="_blank"><i
+                            class="fab fa-telegram-plane social-icon"></i></a>
                     <a href="https://x.com/login?mx=2" target="_blank"><i class="fab fa-twitter social-icon"></i></a>
-                    <a href="https://www.facebook.com/login.php/" target="_blank"><i class="fab fa-facebook-f social-icon"></i></a>
+                    <a href="https://www.facebook.com/login.php/" target="_blank"><i
+                            class="fab fa-facebook-f social-icon"></i></a>
                 </div>
             </div>
         </div>
     </nav>
+    <div class="search-modal">
+        <div class="search-modal__box">
+            <input id="search-input" name="search-input"
+                   placeholder="Search Food Category (Indian, Asian, Pakistani,...)" type="text">
+            <div class="search-modal__buttons">
+                <div class="modal__icon--search"><i class="fas fa-search modal__icon"></i></div>
+                <div class="modal__icon--close"><i class="fas fa-xmark modal__icon"></i></div>
+            </div>
+        </div>
+    </div>
     <div class="container__wrapper main-content">
         <!--    start hero section-->
         <section class="hero-section">
@@ -179,9 +193,11 @@
                     <li class="footer__list__item"><a class="footer__list--link" href="#">About us</a></li>
                 </ul>
                 <div class="footer__socials">
-                    <a href="https://desktop.telegram.org/" target="_blank"><i class="fab fa-telegram-plane social-icon"></i></a>
+                    <a href="https://desktop.telegram.org/" target="_blank"><i
+                            class="fab fa-telegram-plane social-icon"></i></a>
                     <a href="https://x.com/login?mx=2" target="_blank"><i class="fab fa-twitter social-icon"></i></a>
-                    <a href="https://www.facebook.com/login.php/" target="_blank"><i class="fab fa-facebook-f social-icon"></i></a>
+                    <a href="https://www.facebook.com/login.php/" target="_blank"><i
+                            class="fab fa-facebook-f social-icon"></i></a>
                 </div>
             </div>
             <div class="footer__copyright">

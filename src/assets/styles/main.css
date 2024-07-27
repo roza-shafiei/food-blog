@@ -166,9 +166,10 @@ i {
         align-items: center;
         gap: 1rem;
 
-        .navbar__actions__icon {
+        .navbar__actions__search {
+            cursor: pointer;
             font-size: 22px;
-            padding: 12px;
+            padding: 8px 12px;
             background: #26252210;
             border-radius: 1rem;
         }
@@ -313,6 +314,60 @@ i {
 /*mobile navbar active link*/
 .mobile-active-link {
     color: var(--color-light-danger) !important;
+}
+
+/*start search modal style*/
+.search-modal {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    z-index: 6;
+    transition: opacity 3s;
+    animation: modal-animation 300ms;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* <-- this is the culprit */
+}
+
+.search-modal__box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    background: var(--color-light-bg);
+    border-radius: var(--default-border-radius);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    input {
+        width: calc(100% - 40px);
+        height: 40px;
+        background: #26252210;
+        border-radius: 1rem;
+        outline: none;
+        border: none;
+        padding: 0.5rem 1rem;
+    }
+
+    .search-modal__buttons {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .modal__icon {
+        font-size: 18px;
+        cursor: pointer;
+        display: inline-block;
+    }
+
 }
 
 .footer {
@@ -508,4 +563,13 @@ i {
 .fade-out {
     opacity: 0;
     transition: opacity 0.3s ease; /* Adjust the duration as needed */
+}
+
+@keyframes modal-animation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

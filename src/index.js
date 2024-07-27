@@ -2,9 +2,14 @@ const navbarMobileIcon = document.querySelector('.navbar-mobile__icon--container
 const navbarMobileMenu = document.querySelector('.navbar-mobile__menu')
 const desktopNavbarItems = document.querySelectorAll('.navbar__list--link');
 const mobileNavbarItems = document.querySelectorAll('.navbar-mobile__list--link');
+const navbarActionsSearch = document.querySelector('.navbar__actions__search');
 let containerWrapper = document.querySelector('.container__wrapper');
 const subscribeBtn = document.querySelector('.navbar__actions__subscribe');
+const searchModal = document.querySelector('.search-modal');
+const modalIconClose = document.querySelector('.modal__icon--close');
+const modalIconSearch = document.querySelector('.modal__icon--search');
 let showMobileMenu = false
+let showSearchModal = false
 
 window.addEventListener('load', () => {
     let selectedPage = window.location.pathname.split('/').pop();
@@ -53,8 +58,30 @@ navbarMobileIcon.addEventListener('click', (event) => {
         navbarMobileMenu.style.opacity = '0%'
         document.body.style.overflow = 'auto'
         document.body.style.maxHeight = 'unset'
-
         showMobileMenu = false
-
     }
+})
+
+
+//handle search modal display
+navbarActionsSearch.addEventListener('click', () => {
+    showSearchModal = true
+    searchModal.style.display = 'block'
+    document.body.style.overflow = 'hidden'
+    document.body.style.maxHeight = '100vh'
+})
+
+modalIconClose.addEventListener('click', () => {
+    showSearchModal = false
+    searchModal.style.display = 'none'
+    document.body.style.overflow = 'auto'
+    document.body.style.maxHeight = 'unset'
+})
+
+modalIconSearch.addEventListener('click', (event) => {
+    const searchInput = document.querySelector('#search-input')
+    let selectedCat = searchInput.value
+    let urlParams = new URLSearchParams()
+    urlParams.set('cat', selectedCat)
+    location.href = `allRecipes.html?${urlParams}`
 })
