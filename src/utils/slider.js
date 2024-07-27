@@ -22,7 +22,7 @@ function generateSlider(recipes) {
                 </div>
                       <div class="food-card__info">
                              <span class="food-card__info--span">${recipe.prepTimeMinutes} Min - ${recipe.servings} Serves - ${recipe.rating} Rating</span>
-                             <button class="secondary-btn btn">view recipe</button>
+                             <a class="secondary-btn btn" href="recipeId.html?id=${recipe.id}">view recipe</a>
                  </div>
             </div>
        </div>`)
@@ -34,9 +34,9 @@ function generateSlider(recipes) {
 
 function createSlide() {
     new Swiper(".swiper", {
-        // autoplay: {
-        //     delay: 2000,
-        // },
+        autoplay: {
+            delay: 2000,
+        },
         slidesPerView: 1,
         spaceBetween: 16,
         breakpoints: {
