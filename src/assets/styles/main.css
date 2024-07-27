@@ -337,7 +337,6 @@ i {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 40%;
     background: var(--color-light-bg);
     border-radius: var(--default-border-radius);
     padding: 1rem;
@@ -368,6 +367,12 @@ i {
         display: inline-block;
     }
 
+}
+
+/*remove autofill background for inputs*/
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 0s 600000s, color 0s 600000s !important;
 }
 
 .footer {

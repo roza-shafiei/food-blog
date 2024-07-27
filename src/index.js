@@ -3,6 +3,7 @@ const navbarMobileMenu = document.querySelector('.navbar-mobile__menu')
 const desktopNavbarItems = document.querySelectorAll('.navbar__list--link');
 const mobileNavbarItems = document.querySelectorAll('.navbar-mobile__list--link');
 const navbarActionsSearch = document.querySelector('.navbar__actions__search');
+const navbarMobileActionsSearch = document.querySelector('.navbar-mobile__actions__search');
 let containerWrapper = document.querySelector('.container__wrapper');
 const subscribeBtn = document.querySelector('.navbar__actions__subscribe');
 const searchModal = document.querySelector('.search-modal');
@@ -64,12 +65,7 @@ navbarMobileIcon.addEventListener('click', (event) => {
 
 
 //handle search modal display
-navbarActionsSearch.addEventListener('click', () => {
-    showSearchModal = true
-    searchModal.style.display = 'block'
-    document.body.style.overflow = 'hidden'
-    document.body.style.maxHeight = '100vh'
-})
+navbarActionsSearch.addEventListener('click', onDisplayingSearchModal)
 
 modalIconClose.addEventListener('click', () => {
     showSearchModal = false
@@ -85,3 +81,12 @@ modalIconSearch.addEventListener('click', (event) => {
     urlParams.set('cat', selectedCat)
     location.href = `allRecipes.html?${urlParams}`
 })
+
+function onDisplayingSearchModal() {
+    showSearchModal = true
+    searchModal.style.display = 'block'
+    document.body.style.overflow = 'hidden'
+    document.body.style.maxHeight = '100vh'
+}
+
+navbarMobileActionsSearch.addEventListener('click', onDisplayingSearchModal)
