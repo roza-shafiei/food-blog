@@ -186,6 +186,10 @@
 
 
 /*swiper style*/
+.swiper__container {
+    display: none;
+}
+
 .swiper-pagination .swiper-pagination-bullet {
     opacity: 1;
     background-color: var(--color-light-primary);

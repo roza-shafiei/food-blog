@@ -88,7 +88,7 @@
                 <p class="hero-title">Unleash Culinary Excellence</p>
                 <p class="hero-section__content__desc">Explore a world of flavors, <br/> discover handcrafted recipes,
                     and let the aroma of<br/> our passion for cooking fill your kitchen</p>
-                <button class="hero-section__content__button btn" type="button">explore recipes</button>
+                <a class="hero-section__content__button btn" href="allRecipes.html" type="button">explore recipes</a>
             </div>
         </section>
         <!--    finish hero section-->
@@ -100,7 +100,7 @@
                 <p class="palette__content__desc">If you are a breakfast enthusiast, a connoisseur of savory delights,
                     or on the lookout for
                     irresistible desserts, our curated selection has something to satisfy every palate.</p>
-                <button class="secondary-btn btn" type="button">see more</button>
+                <a class="secondary-btn btn" href="allRecipes.html" type="button">see more</a>
 
             </div>
             <div class="palette__list">
@@ -134,7 +134,8 @@
                 <p class="main-title">featured recipes</p>
             </div>
             <div class="featured-recipes__content">
-                <div class="swiper ">
+                <div class="loader slider__loader"></div>
+                <div class="swiper swiper__container">
                     <div class="swiper-wrapper">
                     </div>
                     <div class="swiper-pagination"></div>
@@ -149,8 +150,14 @@
                 <p class="embark-journey__header__desc">With our diverse collection of recipes we have something to
                     satisfy every palate.</p>
             </div>
-            <div class="embark-journey__tags-container"></div>
-            <div class="embark-journey__recipes"></div>
+            <div class="embark-journey__tags-container">
+                <div class="loader tags__loader"></div>
+            </div>
+            <div>
+                <div class="embark-journey__recipes"></div>
+                <div class="loader recipes__loader"></div>
+                <p class="recipes__empty-placeholder empty-placeholder">Sorry! no data ;(</p>
+            </div>
             <div class="pagination"></div>
         </section>
         <!--    finish embark-journey section-->

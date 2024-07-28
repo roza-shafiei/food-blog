@@ -1,11 +1,26 @@
 const swiperWrapper = document.querySelector('.swiper-wrapper');
+let sliderLoading = false
+const sliderLoader = document.querySelector('.slider__loader');
+const swiperContainer = document.querySelector('.swiper__container');
 window.addEventListener('load', () => {
     try {
-        fetch('https://dummyjson.com/recipes?limit=8')
-            .then(res => res.json())
-            .then((data) => {
-                generateSlider(data.recipes)
-            });
+        sliderLoading = true
+        if (sliderLoading) {
+            sliderLoader.style.display = 'block'
+            fetch('https://dummyjson.com/recipes?limit=8')
+                .then(res => res.json())
+                .then((data) => {
+                    if (data && data.recipes.length > 0) {
+                        generateSlider(data.recipes)
+                        swiperContainer.style.display = 'block'
+                    } else if (data && !data.recipes.length) {
+
+                    }
+                    sliderLoading = false
+                    sliderLoader.style.display = 'none'
+                });
+        }
+
     } catch (e) {
         console.log('error is', e)
     }
