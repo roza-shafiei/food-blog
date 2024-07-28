@@ -60,6 +60,7 @@ i {
     transition: all ease 400ms;
     border: none;
     outline: none;
+    text-align: center;
 }
 
 .primary-btn {
@@ -536,7 +537,7 @@ input:-webkit-autofill:focus {
     .subscribe-email {
         display: flex;
         flex-direction: column;
-        align-items: start;
+        align-items: center;
         justify-content: center;
     }
 

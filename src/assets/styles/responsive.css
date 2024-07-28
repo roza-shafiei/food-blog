@@ -18,6 +18,7 @@
 
     .hero-section__content__button {
         width: 100%;
+        color: var(--color-light-black-750);
     }
 
     .palette {

@@ -50,7 +50,7 @@ function createSingleFoodCard(recipe, itemsContainer) {
                 </div>
                       <div class="food-card__info">
                              <span class="food-card__info--span">${recipe.prepTimeMinutes} Min - ${recipe.servings} Serves - ${recipe.rating} Rating</span>
-                             <button class="secondary-btn btn">view recipe</button>
+                             <button class="secondary-btn btn">view</button>
                  </div>
             </div>
        </div>`)
