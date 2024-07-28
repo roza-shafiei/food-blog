@@ -117,3 +117,30 @@ function checkEmail() {
         footerSubscribeBtn.classList.remove('disabled-btn')
     }
 }
+
+footerSubscribeBtn.addEventListener('click', () => {
+    try {
+        fetch('https://dummyjson.com/auth/login', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                username: emailUser.value,
+                password: 'emilyspass',
+                expiresInMins: 180,
+            })
+        })
+            .then(res => res.json())
+        swal({
+            title: "Congratulations!",
+            text: "Subscribe completed successfully",
+            icon: "success",
+            buttons: false,
+            timer: 3000
+        });
+        emailUser.value = ''
+    } catch (e) {
+        console.log('Subscribe failed')
+    }
+    footerSubscribeBtn.disabled = true
+    footerSubscribeBtn.classList.add('disabled-btn')
+})
