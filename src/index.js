@@ -68,7 +68,7 @@ modalIconSearch.addEventListener('click', (event) => {
     const searchInput = document.querySelector('#search-input')
     let selectedCat = searchInput.value
     let urlParams = new URLSearchParams()
-    urlParams.set('cat', selectedCat)
+    urlParams.set('food', selectedCat)
     location.href = `allRecipes.html?${urlParams}`
 })
 

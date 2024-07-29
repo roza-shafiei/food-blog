@@ -4,6 +4,8 @@ let cardPerPage = 6
 let page = 1
 let loading = false
 let tagsLoading = false
+let bestLoading = false
+let searchLoading = false
 let selectedTeg = 'All'
 const bestRecipesContainer = document.querySelector('.best-recipes__container');
 const tagsContainer = document.querySelector('.tags__container');
@@ -11,52 +13,76 @@ const tagsRecipesPagination = document.querySelector('.pagination');
 const tagsRecipesContainer = document.querySelector('.tags__recipes');
 const recipesSearchInput = document.querySelector('#recipes__search-input');
 const recipesSearchButton = document.querySelector('.recipes__search__icon--search');
+const bestRecipesLoader = document.querySelector('.best-recipes__loader');
+const allRecipesTagsLoader = document.querySelector('.all-recipes__tags__loader');
+const tagsRecipesLoader = document.querySelector('.tags__recipes__loader');
+let query = null
 window.addEventListener('DOMContentLoaded', () => {
-    getBestRecipes()
-    getTags()
+    getBestRecipes() //To get best recipes and display them at the top of page
+    getTags() // To get Tags
+    //Check if there is any food params in the URL
     const urlParams = new URLSearchParams(window.location.search);
-    const urlParamsGet = urlParams.get('cat');
+    const urlParamsGet = urlParams.get('food');
     if (urlParamsGet) {
-        selectedTeg = urlParamsGet
+        query = urlParamsGet
         recipesSearchInput.value = urlParamsGet
-        getSelectedTagRecipes(selectedTeg)
+        searchSelectedRecipe()
     }
 })
-
+recipesSearchButton.addEventListener('click', checkQueryValue) //Handle click on search icon
 async function getBestRecipes() {
-    const res = await fetch('https://dummyjson.com/recipes?limit=3&skip=10')
-    const recipeList = await res.json()
-    showBestRecipes(recipeList.recipes)
+    try {
+        bestLoading = true
+        if (bestLoading) {
+            bestRecipesLoader.style.display = 'block'
+            const res = await fetch('https://dummyjson.com/recipes?limit=3&skip=10')
+            const recipeList = await res.json()
+            showBestRecipes(recipeList.recipes)
+            if (recipeList.recipes.length > 0) {
+                bestLoading = false
+                bestRecipesLoader.style.display = 'none'
+            }
+        }
+    } catch (e) {
+        console.log('The error is', e)
+    }
 }
 
 function showBestRecipes(items) {
     for (let recipe of items) {
         bestRecipesContainer.insertAdjacentHTML('beforeend', `<div class="best__card" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url('${recipe.image}');
-})">
-<span class="best__card__name">${recipe.name}</span>
-</div>`)
+        })">
+        <span class="best__card__name">${recipe.name}</span>
+        </div>`)
     }
-}
+} //Create best cards
 
 async function getTags() {
     try {
         tagsLoading = true
-        const res = await fetch('https://dummyjson.com/recipes/tags', {method: 'GET'})
-        const data = await res.json()
-        const tags = data.slice(0, 30)
-        tags.unshift('All')
-        tags.forEach((tag, i) => {
-            const spanElem = document.createElement('span')
-            spanElem.className = 'search-tag'
-            spanElem.textContent = tag
-            spanElem.onclick = onSelectingTag
-            tagsContainer.appendChild(spanElem)
-        })
-        addingActiveClassToTag()
+        if (tagsLoading) {
+            allRecipesTagsLoader.style.display = 'block'
+            const res = await fetch('https://dummyjson.com/recipes/tags', {method: 'GET'})
+            const data = await res.json()
+            const tags = data.slice(0, 30)
+            tags.unshift('All')
+            tags.forEach((tag, i) => {
+                const spanElem = document.createElement('span')
+                spanElem.className = 'search-tag'
+                spanElem.textContent = tag
+                spanElem.onclick = onSelectingTag
+                tagsContainer.appendChild(spanElem)
+            })
+            if (tags.length > 0) {
+                {
+                    tagsLoading = false
+                    allRecipesTagsLoader.style.display = 'none'
+                }
+            }
+            addingActiveClassToTag()
+        }
     } catch (e) {
         console.log(e)
-    } finally {
-        tagsLoading = false
     }
 }
 
@@ -68,41 +94,48 @@ function onSelectingTag(event) {
     }
     event.target.classList.add('active-tag')
     getSelectedTagRecipes(event.target.textContent)
-}
-
+} //When click on a tag
 
 async function getSelectedTagRecipes(name) {
     if (name) {
         selectedTeg = name
     }
-    if (selectedTeg === 'All') {
+    if (selectedTeg === 'All' && !query) {
         try {
             loading = true
-            const res = await fetch('https://dummyjson.com/recipes')
-            const data = await res.json()
-            let tagRecipesList = data?.recipes
-            generatePagination(tagRecipesList, tagsRecipesPagination, tagsRecipesContainer, cardPerPage, page)
-            createFoodCard(tagRecipesList, tagsRecipesContainer, cardPerPage, page)
+            if (loading) {
+                tagsRecipesLoader.style.display = 'block'
+                const res = await fetch('https://dummyjson.com/recipes')
+                const data = await res.json()
+                let tagRecipesList = data?.recipes
+                generatePagination(tagRecipesList, tagsRecipesPagination, tagsRecipesContainer, cardPerPage, page)
+                createFoodCard(tagRecipesList, tagsRecipesContainer, cardPerPage, page)
+            }
+            loading = false
+            tagsRecipesLoader.style.display = 'none'
+
         } catch (err) {
             console.log(err)
-        } finally {
-            loading = false
         }
     } else {
         try {
             loading = true
-            const res = await fetch(`https://dummyjson.com/recipes/tag/${name}`)
-            const data = await res.json()
-            let tagRecipesList = data?.recipes
-            generatePagination(tagRecipesList, tagsRecipesPagination, tagsRecipesContainer, cardPerPage, page)
-            createFoodCard(tagRecipesList, tagsRecipesContainer, cardPerPage, page)
+            if (loading) {
+                const res = await fetch(`https://dummyjson.com/recipes/tag/${name}`)
+                const data = await res.json()
+                let tagRecipesList = data?.recipes
+                generatePagination(tagRecipesList, tagsRecipesPagination, tagsRecipesContainer, cardPerPage, page)
+                createFoodCard(tagRecipesList, tagsRecipesContainer, cardPerPage, page)
+            }
+            loading = false
+            tagsRecipesLoader.style.display = 'none'
         } catch (err) {
             console.log(err)
         } finally {
             loading = false
         }
     }
-}
+} // When tag is selected (default is All)
 
 function addingActiveClassToTag() {
     let allRecipesTagList = document.querySelectorAll('.search-tag');
@@ -111,6 +144,43 @@ function addingActiveClassToTag() {
             tag.classList.add('active-tag')
         }
     })
-}
+    getSelectedTagRecipes()
+} //Add active class to a tag and get recipes related to that tag
 
-recipesSearchButton.addEventListener('click', getSelectedTagRecipes(recipesSearchInput.value))
+async function searchSelectedRecipe() {
+    try {
+        searchLoading = true
+        if (searchLoading) {
+            tagsRecipesLoader.style.display = 'block'
+            if (query) {
+                const res = await fetch(`https://dummyjson.com/recipes/search?q=${query}`)
+                const data = await res.json()
+                let tagRecipesList = data?.recipes
+                tagsRecipesContainer.innerHTML = ''
+                generatePagination(tagRecipesList, tagsRecipesPagination, tagsRecipesContainer, cardPerPage, page)
+                createFoodCard(tagRecipesList, tagsRecipesContainer, cardPerPage, page)
+            } else {
+                getSelectedTagRecipes()
+            }
+        }
+        searchLoading = false
+        tagsRecipesLoader.style.display = 'none'
+
+    } catch (err) {
+        console.log(err)
+    }
+} //Handle if there is search query
+
+function checkQueryValue() {
+    query = recipesSearchInput.value
+    if (!query) {
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.delete('food')
+        window.location.search = urlParams
+    } else {
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.set('food', recipesSearchInput.value)
+        window.location.search = urlParams
+        searchSelectedRecipe()
+    }
+}
