@@ -37,7 +37,7 @@ function generateSlider(recipes) {
                 </div>
                       <div class="food-card__info">
                              <span class="food-card__info--span">${recipe.prepTimeMinutes} Min - ${recipe.servings} Serves - ${recipe.rating} Rating</span>
-                             <a class="secondary-btn btn" href="recipeId.html?id=${recipe.id}">view recipe</a>
+                             <a class="secondary-btn btn" href="recipeId.html?id=${recipe.id}">Read</a>
                  </div>
             </div>
        </div>`)
@@ -58,7 +58,7 @@ function createSlide() {
             // when window width is >= 800px
             800: {
                 slidesPerView: 2,
-                spaceBetween: 20
+                spaceBetween: 16
             },
         },
         pagination: {

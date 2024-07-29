@@ -23,7 +23,7 @@
 
     .palette {
         flex-direction: column;
-        padding: 24px;
+        padding: 16px;
 
     }
 
@@ -32,9 +32,8 @@
         max-width: 100%;
     }
 
-    .featured-recipes {
-        padding: 24px;
-
+    .featured-recipes, .footer, .hero-section {
+        padding: 16px;
     }
 
     .featured-recipes__header {
@@ -51,7 +50,7 @@
     .about-us {
         display: grid;
         grid-template-columns: 1fr;
-        padding: 24px;
+        padding: 16px;
     }
 
     .footer__top {
@@ -78,7 +77,7 @@
         max-width: 100%;
     }
 
-    .subscribe__email-box {
+    .subscribe-email {
         width: 90%;
     }
 
@@ -182,7 +181,7 @@
         max-width: 40%;
     }
 
-    .featured-recipes {
+    .featured-recipes, .footer, .hero-section {
         padding: 40px;
 
     }
@@ -240,7 +239,7 @@
         max-width: 80%;
     }
 
-    .subscribe__email-box {
+    .subscribe-email {
         width: 70%;
     }
 
@@ -301,7 +300,7 @@
         max-width: 50%;
     }
 
-    .subscribe__email-box {
+    .subscribe-email {
         width: 100%;
     }
 

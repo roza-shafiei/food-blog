@@ -26,8 +26,6 @@
     }
 
     .food-card__content {
-
-
         .food-card__title {
             font-family: Montserrat;
             font-weight: 700;
@@ -38,10 +36,7 @@
             font-weight: 300;
             color: var(--color-light-black-750)
         }
-
-
     }
-
 }
 
 .food-card__info {

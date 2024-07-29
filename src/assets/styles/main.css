@@ -191,7 +191,7 @@ i {
     align-items: center;
     justify-content: space-between;
     border: 1px solid #26252224;
-    padding: 12px 24px;
+    padding: 12px 16px;
     border-radius: var(--default-border-radius);
     -webkit-backdrop-filter: blur(35px);
     backdrop-filter: blur(35px);
@@ -395,7 +395,6 @@ input:-webkit-autofill:focus {
     border-radius: var(--default-border-radius);
     background: var(--color-light-black-750);
     color: var(--color-light-bg);
-    padding: 40px;
     display: flex;
     flex-direction: column;
 
@@ -542,6 +541,7 @@ input:-webkit-autofill:focus {
     }
 
     .subscribe__email-box {
+        width: 100%;
         background: var(--color-light-white-100);
         border-radius: 24px;
         padding: 0.2rem 0.5rem;
@@ -558,6 +558,10 @@ input:-webkit-autofill:focus {
             border-radius: 24px;
         }
     }
+}
+
+.email-error {
+    align-self: start;
 }
 
 .subscribe::after, .subscribe::before {
@@ -634,3 +638,4 @@ input:-webkit-autofill:focus {
     display: none;
     text-align: center;
 }
+
