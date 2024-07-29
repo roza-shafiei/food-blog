@@ -1,12 +1,12 @@
 function generatePagination(itemsList, paginationContainer, itemsContainer, cardPerPage, page) {
-    let paginationBoxCount = Math.ceil(itemsList.length / cardPerPage) - 1
+    let paginationBoxCount = Math.ceil(itemsList.length / cardPerPage)
     let fragment = document.createDocumentFragment()
     paginationContainer.innerHTML = ''
     if (paginationBoxCount) {
-        for (let index = 0; index < paginationBoxCount + 1; index++) {
+        for (let index = 1; index <= paginationBoxCount; index++) {
             const span = document.createElement('span')
             span.classList.add('pagination-box')
-            span.innerText = `${index + 1}`
+            span.innerText = `${index}`
             if (page === Number(span.textContent)) {
                 span.classList.add('active-page')
             }

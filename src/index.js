@@ -13,6 +13,7 @@ const modalIconSearch = document.querySelector('.modal__icon--search');
 const emailUser = document.querySelector('#email-user');
 const emailError = document.querySelector('.email-error')
 const footerSubscribeBtn = document.querySelector('.footer-subscribe__btn');
+const searchInput = document.querySelector('#search-input')
 let showMobileMenu = false
 let showSearchModal = false
 
@@ -65,16 +66,23 @@ modalIconClose.addEventListener('click', () => {
 })
 
 modalIconSearch.addEventListener('click', (event) => {
-    const searchInput = document.querySelector('#search-input')
-    let selectedCat = searchInput.value
+    let selectedFood = searchInput.value
     let urlParams = new URLSearchParams()
-    urlParams.set('food', selectedCat)
+    urlParams.set('food', selectedFood)
     location.href = `allRecipes.html?${urlParams}`
 })
 
 function onDisplayingSearchModal() {
     showSearchModal = true
     searchModal.style.display = 'block'
+    // let urlParams = new URLSearchParams(window.location.search);
+    // let selectedFoodInNavbar = urlParams.get('food')
+    // if (selectedFoodInNavbar) {
+    //     searchInput.value = urlParams.get('food')
+    // } else {
+    //     urlParams.delete('food')
+    //     window.location.search = urlParams
+    // }
     document.body.style.overflow = 'hidden'
     document.body.style.maxHeight = '100vh'
 }
