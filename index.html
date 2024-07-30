@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>The Best Cooking Recipes</title>
+    <meta content="HTML, CSS, JavaScript, Recipe website, cooking template" name="keywords">
+    <meta content="HTML, CSS and Vanilla JS Cooking Blog" name="description">
+    <meta content="Roza Shafiei" name="author">
+    <link href="/public/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="/src/dependencies/fontawsome.min.css">
+    <!--    reset default browsers styles-->
+    <link href="src/assets/styles/reset.css" rel="stylesheet" type="text/css">
+    <link href="/src/dependencies/swiper-bundle.min.css" rel="stylesheet">
+    <link href="src/assets/styles/main.css" rel="stylesheet">
+    <link href="src/assets/styles/home.css" rel="stylesheet">
+    <link href="src/assets/styles/responsive.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <nav id="navbar">
+        <a class="logo__container" href="index.html">
+            <img alt="logo" class="logo__img" src="/public/images/Logo.png"/>
+            <span class="logo__text navbar__logo--text">Cooks Delight</span>
+        </a>
+        <ul class="navbar__list">
+            <li class="navbar__list__item"><a class="navbar__list--link" href="index.html">Home</a></li>
+            <li class="navbar__list__item"><a class="navbar__list--link" href="allRecipes.html">Recipes</a></li>
+            <li class="navbar__list__item"><a class="navbar__list--link" href="about.html">About us</a></li>
+        </ul>
+        <div class="navbar__actions">
+            <div class="navbar__actions__search">
+                <i class="fas fa-search"></i>
+            </div>
+            <a class="navbar__actions__subscribe primary-btn btn" href='#subscribe__section'>Subscribe</a>
+        </div>
+    </nav>
+    <nav id="navbar-mobile">
+        <a class="logo__container" href="index.html">
+            <img alt="logo" class="logo__img" src="/public/images/Logo.png"/>
+            <span class="logo__text navbar__logo--text">Cooks Delight</span>
+        </a>
+        <div class="navbar-mobile__menu-container">
+            <div class="navbar-mobile__icon--container"><i class="fas fa-bars navbar-mobile__icon"></i></div>
+            <div class="navbar-mobile__menu">
+                <ul class="navbar-mobile__list">
+                    <li class="navbar-mobile__list__item"><a class="navbar-mobile__list--link "
+                                                             href="index.html">Home</a>
+                    </li>
+                    <li class="navbar-mobile__list__item"><a class="navbar-mobile__list--link"
+                                                             href="src/allRecipes.html">Recipes</a></li>
+                    <li class="navbar-mobile__list__item"><a class="navbar-mobile__list--link" href="src/about.html">About
+                        us</a>
+                    </li>
+                </ul>
+                <div class="navbar-mobile__actions">
+                    <div class="navbar-mobile__actions__search"><i
+                            class="fas fa-search navbar-mobile__actions__icon"></i>
+                    </div>
+                    <a class="navbar-mobile__actions__subscribe btn">Subscribe</a>
+                </div>
+                <div class="navbar-mobile__socials">
+                    <a href="https://desktop.telegram.org/" target="_blank"><i
+                            class="fab fa-telegram-plane social-icon"></i></a>
+                    <a href="https://x.com/login?mx=2" target="_blank"><i class="fab fa-twitter social-icon"></i></a>
+                    <a href="https://www.facebook.com/login.php/" target="_blank"><i
+                            class="fab fa-facebook-f social-icon"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="search-modal">
+        <div class="search-modal__box">
+            <input autocomplete="off" id="search-input"
+                   name="search-input" placeholder="Search Food Recipe (Margherita, Chicken, ...)" type="text">
+            <div class="search-modal__buttons">
+                <div class="modal__icon--search"><i class="fas fa-search modal__icon"></i></div>
+                <div class="modal__icon--close"><i class="fas fa-xmark modal__icon"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="container__wrapper main-content">
+        <!--    start hero section-->
+        <section class="hero-section">
+            <div class="hero-section__content">
+                <p class="hero-title">Unleash Culinary Excellence</p>
+                <p class="hero-section__content__desc">Explore a world of flavors, <br/> discover handcrafted recipes,
+                    and let the aroma of<br/> our passion for cooking fill your kitchen</p>
+                <a class="hero-section__content__button btn" href="src/allRecipes.html" type="button">explore
+                    recipes</a>
+            </div>
+        </section>
+        <!--    finish hero section-->
+        <!--    start diverse palette section-->
+        <section class="palette">
+            <div class="palette__content">
+                <span class="tag">Explore</span>
+                <p class="palette__content__title main-title">Our diverse Palette</p>
+                <p class="palette__content__desc">If you are a breakfast enthusiast, a connoisseur of savory delights,
+                    or on the lookout for
+                    irresistible desserts, our curated selection has something to satisfy every palate.</p>
+                <a class="secondary-btn btn" href="src/allRecipes.html" type="button">see more</a>
+
+            </div>
+            <div class="palette__list">
+                <ul class="palette__list__menu">
+                    <li class="palette__list__item">
+                        <img alt="breakfast" src="/public/images/home/breakfast.png"/>
+                        <span>breakfast </span>
+                    </li>
+                    <li class="palette__list__item">
+                        <img alt="lunch" src="/public/images/home/lunch.png"/>
+                        <span class="palette__list__item--text"> lunch</span>
+                    </li>
+                    <li class="palette__list__item">
+                        <img alt="dinner" src="/public/images/home/dinner.png"/>
+                        <span class="palette__list__item--text"> dinner</span>
+                    </li>
+                    <li class="palette__list__item">
+                        <img alt="dessert" src="/public/images/home/dessert.png"/>
+                        <span class="palette__list__item--text">dessert </span>
+                    </li>
+                    <li class="palette__list__item">
+                        <img alt="quick bite" src="/public/images/home/quick.png"/>
+                        <span class="palette__list__item--text">quick bite! </span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!--    finish diverse palette section-->
+        <section class="featured-recipes main-content">
+            <div class="featured-recipes__header">
+                <p class="main-title">featured recipes</p>
+            </div>
+            <div class="featured-recipes__content">
+                <div class="loader slider__loader"></div>
+                <div class="swiper swiper__container">
+                    <div class="swiper-wrapper">
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+        <!--    finish featured recipes section-->
+        <section class="embark-journey main-content">
+            <div class="embark-journey__header">
+                <span class="tag">recipes</span>
+                <p class="main-title">Embark on a journey</p>
+                <p class="embark-journey__header__desc">With our diverse collection of recipes we have something to
+                    satisfy every palate.</p>
+            </div>
+            <div class="embark-journey__tags-container">
+                <div class="loader tags__loader"></div>
+            </div>
+            <div>
+                <div class="embark-journey__recipes"></div>
+                <div class="loader recipes__loader"></div>
+                <p class="recipes__empty-placeholder empty-placeholder">Sorry! no data ;(</p>
+            </div>
+            <div class="pagination"></div>
+        </section>
+        <!--    finish embark-journey section-->
+        <section class="about-us main-content">
+            <div class="about-us__content">
+                <div class="about-us__content--wrapper">
+                    <span class="tag">about us</span>
+                    <p class="main-title">Our Culinary Chronicle</p>
+                    <p class="about-us__content__desc">Our journey is crafted with dedication, creativity, and an
+                        unrelenting commitment to delivering delightful culinary experiences...</p>
+                </div>
+                <a class="secondary-btn btn" href="src/about.html" type="button">Read more</a>
+            </div>
+            <img alt="about-us image" class="about-us__image-first" src="/public/images/home/about.jpg"/>
+            <img alt="about-us image" class="about-us__image-second" src="/public/images/home/about1.jpg"/>
+            <img alt="about-us image" class="about-us__image-third" src="/public/images/home/about2.jpg"/>
+        </section>
+        <!--    finish about us section-->
+        <section class="subscribe" id="subscribe__section">
+            <div class="subscribe-wrapper">
+                <span class="tag">subscribe</span>
+                <h2 class="hero-title">Join the fun Subscribe now!</h2>
+                <p class="hero-section__content__desc">Subscribe to our newsletter for a weekly serving of recipes,
+                    cooking
+                    tips, and exclusive insights straight to your inbox.</p>
+                <div class="subscribe-email">
+                    <div class="subscribe__email-box">
+                        <input id="email-user" name="email-user" placeholder="Email Address" type="email"/>
+                        <button class="btn primary-btn footer-subscribe__btn disabled-btn" disabled>subscribe</button>
+                    </div>
+                    <span class="email-error error"></span>
+                </div>
+            </div>
+        </section>
+        <!--    finish subscribe section-->
+        <footer class="footer">
+            <div class="footer__top">
+                <a class="logo__container" href="index.html">
+                    <img alt="logo" class="logo__img" src="/public/images/Logo.png"/>
+                    <span class="logo__text footer__logo--text">Cooks Delight</span>
+                </a>
+                <ul class="footer__list">
+                    <li class="footer__list__item"><a class="footer__list--link" href="index.html">Home</a></li>
+                    <li class="footer__list__item"><a class="footer__list--link"
+                                                      href="src/allRecipes.html">Recipes</a></li>
+                    <li class="footer__list__item"><a class="footer__list--link" href="src/about.html">About us</a></li>
+                </ul>
+                <div class="footer__socials">
+                    <a href="https://desktop.telegram.org/" target="_blank"><i
+                            class="fab fa-telegram-plane social-icon"></i></a>
+                    <a href="https://x.com/login?mx=2" target="_blank"><i class="fab fa-twitter social-icon"></i></a>
+                    <a href="https://www.facebook.com/login.php/" target="_blank"><i
+                            class="fab fa-facebook-f social-icon"></i></a>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <p>Copyright: © 2024 Cooks Delight.</p>
+            </div>
+        </footer>
+    </div>
+</div>
+<script src="/src/dependencies/fontawsome.min.js"></script>
+<script src="src/dependencies/swiper-bundle.min.js"></script>
+<script src="src/utils/slider.js" type="module"></script>
+<script async defer src="src/dependencies/sweetAlert.min.js"></script>
+<script async defer src="src/index.js"></script>
+<script src="src/scripts/home.js" type="module"></script>
+
+</body>
+</html>
