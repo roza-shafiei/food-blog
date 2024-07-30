@@ -51,10 +51,10 @@ async function getBestRecipes() {
 
 function showBestRecipes(items) {
     for (let recipe of items) {
-        bestRecipesContainer.insertAdjacentHTML('beforeend', `<div class="best__card" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url('${recipe.image}');
+        bestRecipesContainer.insertAdjacentHTML('beforeend', `<a href="recipeId.html?id=${recipe.id}" class="best__card" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url('${recipe.image}');
         })">
         <span class="best__card__name">${recipe.name}</span>
-        </div>`)
+        </a>`)
     }
 } //Create best cards
 
@@ -168,11 +168,8 @@ async function searchSelectedRecipe() {
                 let tagRecipesList = data?.recipes
                 tagsRecipesContainer.innerHTML = ''
                 if (tagRecipesList.length > 0) {
-                    tagsRecipesEmptyPlaceholder.style.display = 'block'
                     generatePagination(tagRecipesList, tagsRecipesPagination, tagsRecipesContainer, cardPerPage, page)
                     createFoodCard(tagRecipesList, tagsRecipesContainer, cardPerPage, page)
-                } else {
-                    tagsRecipesEmptyPlaceholder.style.display = 'none'
                 }
             } else {
                 getSelectedTagRecipes()
