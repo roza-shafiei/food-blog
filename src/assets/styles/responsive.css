@@ -119,6 +119,18 @@
     .search-modal__box {
         width: 90%;
     }
+
+    .recipe-id {
+        padding: 40px 16px;
+    }
+
+    .recipe-id__content-main {
+        flex-direction: column-reverse;
+    }
+
+    .recipe-id__content__left, .recipe-id__content__right {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 600px) {
@@ -258,8 +270,22 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /*about page*/
+    /*recipeId page*/
+    .recipe-id {
+        padding: 64px 40px;
+    }
 
+    .recipe-id__content-main {
+        flex-direction: row;
+    }
+
+    .recipe-id__content__left {
+        width: 40%;
+    }
+
+    .recipe-id__content__right {
+        width: 60%;
+    }
 }
 
 @media screen and (min-width: 1024px) {
