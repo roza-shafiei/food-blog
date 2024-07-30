@@ -16,6 +16,7 @@ const recipesSearchButton = document.querySelector('.recipes__search__icon--sear
 const bestRecipesLoader = document.querySelector('.best-recipes__loader');
 const allRecipesTagsLoader = document.querySelector('.all-recipes__tags__loader');
 const tagsRecipesLoader = document.querySelector('.tags__recipes__loader');
+const tagsRecipesEmptyPlaceholder = document.querySelector('.tags__recipes__empty-placeholder');
 let query = null
 window.addEventListener('DOMContentLoaded', () => {
     getBestRecipes() //To get best recipes and display them at the top of page
@@ -108,12 +109,16 @@ async function getSelectedTagRecipes(name) {
                 const res = await fetch('https://dummyjson.com/recipes')
                 const data = await res.json()
                 let tagRecipesList = data?.recipes
-                generatePagination(tagRecipesList, tagsRecipesPagination, tagsRecipesContainer, cardPerPage, page)
-                createFoodCard(tagRecipesList, tagsRecipesContainer, cardPerPage, page)
+                if (tagRecipesList.length > 0) {
+                    tagsRecipesEmptyPlaceholder.style.display = 'none'
+                    generatePagination(tagRecipesList, tagsRecipesPagination, tagsRecipesContainer, cardPerPage, page)
+                    createFoodCard(tagRecipesList, tagsRecipesContainer, cardPerPage, page)
+                } else {
+                    tagsRecipesEmptyPlaceholder.style.display = 'block'
+                }
             }
             loading = false
             tagsRecipesLoader.style.display = 'none'
-
         } catch (err) {
             console.log(err)
         }
@@ -124,8 +129,13 @@ async function getSelectedTagRecipes(name) {
                 const res = await fetch(`https://dummyjson.com/recipes/tag/${name}`)
                 const data = await res.json()
                 let tagRecipesList = data?.recipes
-                generatePagination(tagRecipesList, tagsRecipesPagination, tagsRecipesContainer, cardPerPage, page)
-                createFoodCard(tagRecipesList, tagsRecipesContainer, cardPerPage, page)
+                if (tagRecipesList.length > 0) {
+                    tagsRecipesEmptyPlaceholder.style.display = 'none'
+                    generatePagination(tagRecipesList, tagsRecipesPagination, tagsRecipesContainer, cardPerPage, page)
+                    createFoodCard(tagRecipesList, tagsRecipesContainer, cardPerPage, page)
+                } else {
+                    tagsRecipesEmptyPlaceholder.style.display = 'block'
+                }
             }
             loading = false
             tagsRecipesLoader.style.display = 'none'
@@ -157,8 +167,13 @@ async function searchSelectedRecipe() {
                 const data = await res.json()
                 let tagRecipesList = data?.recipes
                 tagsRecipesContainer.innerHTML = ''
-                generatePagination(tagRecipesList, tagsRecipesPagination, tagsRecipesContainer, cardPerPage, page)
-                createFoodCard(tagRecipesList, tagsRecipesContainer, cardPerPage, page)
+                if (tagRecipesList.length > 0) {
+                    tagsRecipesEmptyPlaceholder.style.display = 'block'
+                    generatePagination(tagRecipesList, tagsRecipesPagination, tagsRecipesContainer, cardPerPage, page)
+                    createFoodCard(tagRecipesList, tagsRecipesContainer, cardPerPage, page)
+                } else {
+                    tagsRecipesEmptyPlaceholder.style.display = 'none'
+                }
             } else {
                 getSelectedTagRecipes()
             }
