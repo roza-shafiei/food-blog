@@ -19,6 +19,9 @@ let showSearchModal = false
 
 window.addEventListener('load', () => {
     let selectedPage = window.location.pathname.split('/').pop();
+    if (!selectedPage) {
+        selectedPage = 'index.html'
+    }
     desktopNavbarItems.forEach(item => {
         item.href.includes(selectedPage) && item.classList.add('active-link');
     })
