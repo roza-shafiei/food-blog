@@ -9,7 +9,7 @@
     font-family: Montserrat ;
     font-style: normal;
     font-weight: 300;
-    src: url('public/fonts/Montserrat/Montserrat-Light.ttf') format('truetype');
+    src: url('../Montserrat/Montserrat-Light.ttf') format('truetype');
 }
 
 @font-face {
