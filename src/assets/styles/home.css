@@ -4,7 +4,7 @@
 /* start hero section*/
 .hero-section {
     width: 100%;
-    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%), url("/public/images/home/cooking2.jpg");
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%), url("/Users/roza/Web/Resume/Recipe Blog/public/images/home/cooking2.jpg");
     height: 557px;
     background-size: cover;
     background-repeat: no-repeat;
