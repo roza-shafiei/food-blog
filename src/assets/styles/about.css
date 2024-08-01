@@ -52,7 +52,7 @@
 
     .about__details--me__img {
         width: 100%;
-        background-image: url("/public/images/about-me/me.jpg");
+        background-image: url("../../../public/images/about-me/me.jpg");
         mix-blend-mode: multiply;
         height: 550px;
         max-height: 80vh;
