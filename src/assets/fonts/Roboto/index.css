@@ -16,14 +16,14 @@
     font-family: Roboto;
     font-style: normal;
     font-weight: 400;
-    src: url('public/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    src: url('../../public/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
 }
 
 @font-face {
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
-    src: url('./public/fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+    src: url('../../../public/fonts/Roboto/Roboto-Medium.ttf') format('truetype');
 }
 
 @font-face {
