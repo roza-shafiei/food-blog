@@ -37,7 +37,7 @@ function generateSlider(recipes) {
                 </div>
                       <div class="food-card__info">
                              <span class="food-card__info--span">${recipe.prepTimeMinutes} Min - ${recipe.servings} Serves - ${recipe.rating} Rating</span>
-                             <a class="secondary-btn btn" href="../../src/recipeId.html?id=${recipe.id}">Read</a>
+                             <a class="secondary-btn btn" href="recipeId.html?id=${recipe.id}">Read</a>
                  </div>
             </div>
        </div>`)
