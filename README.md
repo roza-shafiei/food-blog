@@ -1,5 +1,8 @@
-```markdown
 # Food Blog Website
+
+## Live Demo
+You can check the website from the following link:
+https://roza-shafiei.github.io/food-blog/
 
 ## Description
 This responsive food blog website is designed to work seamlessly on all devices and screen sizes. The website is built using HTML, CSS, and Vanilla JavaScript. It features a search functionality, data fetching from dummy JSON APIs, and a loader animation while fetching data. The UI design is based on a free Figma template.
@@ -19,18 +22,7 @@ This responsive food blog website is designed to work seamlessly on all devices 
 - **Fetch API**
 - **Figma (for UI design)**
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/food-blog.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd food-blog
-   ```
-
 ## Usage
-- Open the website in your browser.
 - Use the search bar to find specific content.
 - Enjoy the responsive design and smooth user experience.
 
@@ -43,5 +35,3 @@ This project is licensed under the MIT License.
 ## Acknowledgements
 - [Figma](https://www.figma.com/) for the free UI design template.
 - [JSONPlaceholder](https://jsonplaceholder.typicode.com/) for the dummy JSON APIs.
-
-```
