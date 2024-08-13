@@ -72,7 +72,7 @@ modalIconSearch.addEventListener('click', (event) => {
     handlingSearchRecipe()
 })
 
-modalIconSearch.addEventListener('keydown', (event) => {
+searchInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         handlingSearchRecipe()
     }
