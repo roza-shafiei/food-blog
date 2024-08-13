@@ -72,7 +72,7 @@ modalIconSearch.addEventListener('click', (event) => {
     let selectedFood = searchInput.value
     let urlParams = new URLSearchParams()
     urlParams.set('food', selectedFood)
-    location.href = `allRecipes.html?${urlParams}`
+    location.href = `src/allRecipes.html?${urlParams}`
 })
 
 function onDisplayingSearchModal() {
