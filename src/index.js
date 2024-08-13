@@ -82,13 +82,11 @@ function handlingSearchRecipe() {
     let selectedFood = searchInput.value
     let urlParams = new URLSearchParams()
     urlParams.set('food', selectedFood)
-    if (window.location.pathname !== '/') {
-        location.href = `allRecipes.html?${urlParams}`
-
-    } else {
+    if (window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/index.html')) {
         location.href = `src/allRecipes.html?${urlParams}`
+    } else {
+        location.href = `allRecipes.html?${urlParams}`
     }
-
 }
 
 function onDisplayingSearchModal() {
