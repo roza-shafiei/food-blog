@@ -69,11 +69,27 @@ modalIconClose.addEventListener('click', () => {
 })
 
 modalIconSearch.addEventListener('click', (event) => {
+    handlingSearchRecipe()
+})
+
+modalIconSearch.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        handlingSearchRecipe()
+    }
+})
+
+function handlingSearchRecipe() {
     let selectedFood = searchInput.value
     let urlParams = new URLSearchParams()
     urlParams.set('food', selectedFood)
-    location.href = `src/allRecipes.html?${urlParams}`
-})
+    if (window.location.pathname !== '/') {
+        location.href = `allRecipes.html?${urlParams}`
+
+    } else {
+        location.href = `src/allRecipes.html?${urlParams}`
+    }
+
+}
 
 function onDisplayingSearchModal() {
     showSearchModal = true
