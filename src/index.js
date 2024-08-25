@@ -165,7 +165,9 @@ footerSubscribeBtn.addEventListener('click', () => {
         emailUser.value = ''
     } catch (e) {
         console.log('Subscribe failed')
+    } finally {
+        footerSubscribeBtn.disabled = true
+        footerSubscribeBtn.classList.add('disabled-btn')
     }
-    footerSubscribeBtn.disabled = true
-    footerSubscribeBtn.classList.add('disabled-btn')
+
 })
